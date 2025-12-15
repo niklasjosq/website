@@ -4,14 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>quantum & AI advisory</title>
+    <title>quantum & AI freelancing services</title>
     <style>
-        /* --- Grundlegendes Styling --- */
         :root {
             --bg-color: #ffffff;
             --text-color: #1a1a1a;
             --accent-color: #000000;
-            /* Schwarz für starken Kontrast */
             --border-color: #e0e0e0;
             --code-bg: #f4f4f4;
         }
@@ -25,16 +23,15 @@
             padding: 0;
         }
 
-        /* --- Layout Container --- */
+
+
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
             position: relative;
-            /* For language toggle positioning context if needed */
         }
 
-        /* --- Typografie --- */
         h1,
         h2,
         h3 {
@@ -70,7 +67,6 @@
             color: var(--bg-color);
         }
 
-        /* --- Code-Blöcke & Tags --- */
         .tag {
             background: var(--code-bg);
             padding: 2px 6px;
@@ -82,7 +78,6 @@
             margin-bottom: 5px;
         }
 
-        /* --- Projekt Grid --- */
         .project-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -106,7 +101,6 @@
             box-shadow: 4px 4px 0px var(--text-color);
         }
 
-        /* --- Referenzen --- */
         blockquote {
             border-left: 4px solid var(--text-color);
             margin: 0;
@@ -122,7 +116,6 @@
             font-style: normal;
         }
 
-        /* --- Footer --- */
         footer {
             margin-top: 60px;
             padding-top: 20px;
@@ -132,7 +125,6 @@
             opacity: 0.7;
         }
 
-        /* Cursor Animation für den Header */
         .cursor {
             display: inline-block;
             width: 15px;
@@ -155,7 +147,8 @@
             }
         }
 
-        /* --- Language Toggle --- */
+
+
         .lang-toggle {
             position: absolute;
             top: 20px;
@@ -173,6 +166,15 @@
             background: var(--text-color);
             color: var(--bg-color);
         }
+
+        #secure-contact {
+            transition: color 0.3s ease;
+        }
+
+        #secure-contact[data-decoded="true"] {
+            color: #4CAF50;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -187,8 +189,8 @@
             <p style="font-size: 1.2rem; margin-top: 20px;">
                 > <span data-i18n="role1">Advisor im Bereich Quantencomputing und Quantenkommunikation.</span><br>
                 > <span data-i18n="role2">Freelance AI Developer & Tech Consultant.</span><br>
-                > <span data-i18n="role3">Ich integriere komplexe AI workflows und Business getriebene daten
-                    pipelines.</span>
+                > <span data-i18n="role3">Ich integriere komplexe KI Workflows und Business getriebene
+                    Datenpipelines.</span>
             </p>
             <p>
                 <a href="#contact" data-i18n="contact_link">Kontakt aufnehmen</a> &nbsp;|&nbsp;
@@ -199,25 +201,25 @@
         <hr style="border: 0; border-top: 1px dashed #ccc; margin: 40px 0;">
 
         <section id="stack">
-            <h3>// Business Stack</h3>
+            <h3 data-i18n="business_stack_title">// Business Stack</h3>
             <p>
-                <span class="tag">Project management</span>
-                <span class="tag">Data and business analysis</span>
-                <span class="tag">Business requirements</span>
-                <span class="tag">Risk analysis (Credit, market)</span>
-                <span class="tag">Trading</span>
-                <span class="tag">Accounting</span>
+                <span class="tag" data-i18n="stack_pm">Project management</span>
+                <span class="tag" data-i18n="stack_analysis">Data and business analysis</span>
+                <span class="tag" data-i18n="stack_req">Business requirements</span>
+                <span class="tag" data-i18n="stack_risk">Risk analysis (credit, market)</span>
+                <span class="tag" data-i18n="stack_trading">Trading (options, stocks) and settlement</span>
+                <span class="tag" data-i18n="stack_accounting">Financial accounting logic (fron2back)</span>
             </p>
-            <h3>// Tech Stack</h3>
+            <h3 data-i18n="tech_stack_title">// Tech Stack</h3>
             <p>
-                <span class="tag">AI</span>
-                <span class="tag">Quantum algorithms</span>
-                <span class="tag">Quantum Machine Learning</span>
-                <span class="tag">Python</span>
-                <span class="tag">Docker</span>
-                <span class="tag">AWS</span>
-                <span class="tag">SQL</span>
-                <span class="tag">Excel</span>
+                <span class="tag" data-i18n="stack_genai">Generative AI</span>
+                <span class="tag" data-i18n="stack_qalgo">Quantum algorithms</span>
+                <span class="tag" data-i18n="stack_qml">(Quantum) machine learning</span>
+                <span class="tag" data-i18n="stack_python">Python</span>
+                <span class="tag" data-i18n="stack_azure">Azure</span>
+                <span class="tag" data-i18n="stack_aws">AWS</span>
+                <span class="tag" data-i18n="stack_sql">SQL</span>
+                <span class="tag" data-i18n="stack_excel">Excel</span>
             </p>
         </section>
 
@@ -234,8 +236,7 @@
                         <span class="tag">Python</span>
                     </div>
                     <p style="margin-top: 15px;">
-                        <a href="#" data-i18n="live_demo">Live Demo -></a><br>
-                        <a href="#" data-i18n="github_repo">GitHub Repo -></a>
+                        <a href="#" data-i18n="confidential">- Confidential -</a><br>
                     </p>
                 </article>
 
@@ -251,20 +252,38 @@
                         <span class="tag">RAG pipeline</span>
                     </div>
                     <p style="margin-top: 15px;">
-                        <a href="#" data-i18n="github_repo">GitHub Repo -></a>
+                        <a href="https://github.com/JoSQUANTUM/financial-copilot" data-i18n="github_repo"
+                            target="_blank">GitHub Repo -></a>
                     </p>
                 </article>
 
                 <article class="project-card">
                     <h3 data-i18n="project3_title">Quantencomputer Framework</h3>
-                    <p data-i18n="project3_desc">Framework für die Entwicklung von Quantenschaltkreisen und Simulatoren
-                        und Quantencomputern.</p>
+                    <p data-i18n="project3_desc">Framework für die Entwicklung von Quantenschaltkreisen,
+                        Anwendungsfällen und Prototypen.</p>
                     <div>
                         <span class="tag">Python</span>
+                        <span class="tag">nvidia CUDA</span>
                         <span class="tag">API</span>
                     </div>
                     <p style="margin-top: 15px;">
-                        <a href="#" data-i18n="github_repo">GitHub Repo -></a>
+                        <a href="https://github.com/JoSQUANTUM/geqo" data-i18n="github_repo" target="_blank">GitHub Repo
+                            -></a>
+                    </p>
+                </article>
+                <article class="project-card">
+                    <h3 data-i18n="project4_title">Framework für Monte Carlo Simulation von Risikomodellen</h3>
+                    <p data-i18n="project4_desc">Eine Bibliothek verschiedener Quantenalgorithmen für die quantitative
+                        Modellierung.</p>
+                    <div>
+                        <span class="tag">Python</span>
+                        <span class="tag">API</span>
+                        <span class="tag">Qiskit</span>
+                        <span class="tag">Pennylane</span>
+                    </div>
+                    <p style="margin-top: 15px;">
+                        <a href="https://github.com/JoSQUANTUM/pygrnd" data-i18n="github_repo" target="_blank">GitHub
+                            Repo -></a>
                     </p>
                 </article>
             </div>
@@ -283,7 +302,7 @@
                     scientific level and, as a co-author, has published very good studies on the development of quantum
                     algorithms in the context of problems in the financial industry.
                     I can give Niklas my highest recommendation, not only as a leading quantum expert, but also as a
-                    very good team player to achieve common goals.."
+                    very good team player to achieve common goals."
                     <span class="client-name">— Stefan Kister, IBM Quantum Technical Ambassador and Qiskit
                         Advocat</span>
                 </blockquote>
@@ -296,14 +315,18 @@
                         2026</strong>.</span></p>
 
             <ul style="list-style: none; padding: 0;">
-                <li>Email: <a href="nik.kes@gmx.de">nik.kes@gmx.de</a></li>
+                <li>Email: <a id="secure-contact" href="#" style="cursor: pointer;">[Adresse aufdecken]</a></li>
                 <li>GitHub: <a href="#">https://github.com/niklasjosq</a></li>
                 <li>LinkedIn: <a href="#">https://www.linkedin.com/in/niklas-hegemann-77065542/</a></li>
             </ul>
         </section>
 
         <footer>
-            <p>&copy; 2025 nikkes. Built with pure HTML/CSS.</p>
+            <p>
+                &copy; 2025 nikkes. Built with pure HTML/CSS.<br>
+                <a href="impressum.html" data-i18n="impressum_link">Impressum</a> |
+                <a href="datenschutz.html" data-i18n="privacy_link">Datenschutz</a>
+            </p>
         </footer>
 
     </div>
@@ -321,13 +344,34 @@
                 project1_desc: "Einführung einer neuen Kreditrisiko Architektur bei einer globalen Investmentbank",
                 live_demo: "Live Demo ->",
                 github_repo: "GitHub Repo ->",
+                confidential: "- Confidential -",
                 project2_title: "KI Integration",
                 project2_desc: "Einführung einer KI-gestützten Applikation für den Fachbereich einer deutschen Universalbank.",
                 project3_title: "Quantencomputer Framework",
-                project3_desc: "Framework für die Entwicklung von Quantenschaltkreisen und Simulatoren und Quantencomputern.",
+                project3_desc: "Framework für die Entwicklung von Quantenschaltkreisen, Anwendungsfällen und Prototypen.",
+                project4_title: "Framework für Monte Carlo Simulation von Risikomodellen",
+                project4_desc: "Eine Bibliothek verschiedener Quantenalgorithmen für die quantitative Modellierung.",
                 references_title: "02. Referenzen",
                 contact_title: "03. Kontakt",
-                availability: "Ich bin aktuell verfügbar für neue Projekte ab <strong>Mai 2026</strong>."
+                availability: "Ich bin aktuell verfügbar für neue Projekte ab <strong>Mai 2026</strong>.",
+                business_stack_title: "// Business Stack",
+                stack_pm: "Projektmanagement",
+                stack_analysis: "Daten- und Businessanalyse",
+                stack_req: "Business Requirements",
+                stack_risk: "Risikoanalyse (Kredit, Markt)",
+                stack_trading: "Handel (Optionen, Aktien) und Abwicklung",
+                stack_accounting: "Finanzbuchhaltung (Front-to-Back)",
+                tech_stack_title: "// Tech Stack",
+                stack_genai: "Generative KI",
+                stack_qalgo: "Quantenalgorithmen",
+                stack_qml: "(Quanten) Maschinelles Lernen",
+                stack_python: "Python",
+                stack_azure: "Azure",
+                stack_aws: "AWS",
+                stack_sql: "SQL",
+                stack_excel: "Excel",
+                impressum_link: "Impressum",
+                privacy_link: "Datenschutz"
             },
             en: {
                 greeting: "Hello, I am Nik",
@@ -340,13 +384,34 @@
                 project1_desc: "Implementation of a new credit risk architecture at a global investment bank.",
                 live_demo: "Live Demo ->",
                 github_repo: "GitHub Repo ->",
+                confidential: "- Confidential -",
                 project2_title: "AI Integration",
                 project2_desc: "Introduction of an AI-supported application for a specialist department of a German universal bank.",
                 project3_title: "Quantum Computer Framework",
-                project3_desc: "Framework for the development of quantum circuits and simulators and quantum computers.",
+                project3_desc: "Framework for the development of quantum circuits, use cases, and prototypes.",
+                project4_title: "Framework for Monte Carlo Simulation of Risk Models",
+                project4_desc: "A library of various quantum algorithms for quantitative modeling.",
                 references_title: "02. References",
                 contact_title: "03. Contact",
-                availability: "I am currently available for new projects starting <strong>May 2026</strong>."
+                availability: "I am currently available for new projects starting <strong>May 2026</strong>.",
+                business_stack_title: "// Business Stack",
+                stack_pm: "Project management",
+                stack_analysis: "Data and business analysis",
+                stack_req: "Business requirements",
+                stack_risk: "Risk analysis (credit, market)",
+                stack_trading: "Trading (options, stocks) and settlement",
+                stack_accounting: "Financial accounting logic (front-to-back)",
+                tech_stack_title: "// Tech Stack",
+                stack_genai: "Generative AI",
+                stack_qalgo: "Quantum algorithms",
+                stack_qml: "(Quantum) machine learning",
+                stack_python: "Python",
+                stack_azure: "Azure",
+                stack_aws: "AWS",
+                stack_sql: "SQL",
+                stack_excel: "Excel",
+                impressum_link: "Imprint",
+                privacy_link: "Privacy Policy"
             }
         };
 
@@ -356,18 +421,10 @@
             elements.forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang][key]) {
-                    // Check if original had bold tag to preserve it? 
-                    // Simple solution: availability uses innerHTML-like replacement or just text?
-                    // The 'availability' key contains HTML (<strong>). So we should use innerHTML.
-                    // For security, strict textContent is better, but here we control the strings.
-                    // Let's check which keys need HTML. Just 'availability'. All others are text.
-                    // But to be generic, let's simple replace html content if needed or just text.
-                    // Given this is a static personal site, innerHTML is fine.
                     el.innerHTML = translations[lang][key];
                 }
             });
 
-            // Update button text to the OTHER language
             const btn = document.getElementById('lang-btn');
             btn.innerText = lang === 'de' ? 'EN' : 'DE';
 
@@ -380,7 +437,6 @@
             setLanguage(newLang);
         }
 
-        // Auto-detect
         (function () {
             const savedLang = localStorage.getItem('preferredLang');
             if (savedLang) {
@@ -395,6 +451,36 @@
             }
         })();
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const payload = "bmlrLmtlc0BnbXguZGU=";
+            const link = document.getElementById('secure-contact');
+
+            if (!link) {
+                console.error("Secure contact element not found!");
+                return;
+            }
+
+            function decodeAndShow(e) {
+
+                if (link.dataset.decoded === "true") return;
+
+                const email = atob(payload);
+
+                link.href = 'mailto:' + email;
+                link.innerText = email;
+
+                link.dataset.decoded = "true";
+            }
+
+            link.addEventListener('mouseover', decodeAndShow);
+            link.addEventListener('touchstart', decodeAndShow);
+            link.addEventListener('focus', decodeAndShow);
+            link.addEventListener('click', decodeAndShow);
+        });
+    </script>
+
 </body>
 
 </html>
