@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quantum & AI advisory</title>
+    <style>
+        /* --- Grundlegendes Styling --- */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --accent-color: #000000;
+            /* Schwarz für starken Kontrast */
+            --border-color: #e0e0e0;
+            --code-bg: #f4f4f4;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: "Courier New", Courier, "Lucida Sans Typewriter", monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- Layout Container --- */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            /* For language toggle positioning context if needed */
+        }
+
+        /* --- Typografie --- */
+        h1,
+        h2,
+        h3 {
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-top: 2.5em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 2.5rem;
+            border-bottom: 4px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 1px solid var(--text-color);
+            transition: background 0.2s;
+        }
+
+        a:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        /* --- Code-Blöcke & Tags --- */
+        .tag {
+            background: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            border: 1px solid #ccc;
+            margin-right: 5px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        /* --- Projekt Grid --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .project-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .project-card {
+            border: 2px solid var(--text-color);
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 4px 4px 0px var(--text-color);
+        }
+
+        /* --- Referenzen --- */
+        blockquote {
+            border-left: 4px solid var(--text-color);
+            margin: 0;
+            padding-left: 20px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .client-name {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        /* --- Footer --- */
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--border-color);
+            font-size: 0.8rem;
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        /* Cursor Animation für den Header */
+        .cursor {
+            display: inline-block;
+            width: 15px;
+            height: 2.5rem;
+            background-color: var(--text-color);
+            animation: blink 1s infinite;
+            vertical-align: bottom;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* --- Language Toggle --- */
+        .lang-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: inherit;
+            background: var(--bg-color);
+            border: 2px solid var(--text-color);
+            padding: 5px 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .lang-toggle:hover {
+            background: var(--text-color);
+            color: var(--bg-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="lang-btn" class="lang-toggle" onclick="toggleLanguage()">EN</button>
+
+    <div class="container">
+
+        <header>
+            <h1><span data-i18n="greeting">Hallo, ich bin Nik</span><span class="cursor"></span></h1>
+            <p style="font-size: 1.2rem; margin-top: 20px;">
+                > <span data-i18n="role1">Advisor im Bereich Quantencomputing und Quantenkommunikation.</span><br>
+                > <span data-i18n="role2">Freelance AI Developer & Tech Consultant.</span><br>
+                > <span data-i18n="role3">Ich integriere komplexe AI workflows und Business getriebene daten
+                    pipelines.</span>
+            </p>
+            <p>
+                <a href="#contact" data-i18n="contact_link">Kontakt aufnehmen</a> &nbsp;|&nbsp;
+                <a href="#projects" data-i18n="work_link">Meine Arbeit</a>
+            </p>
+        </header>
+
+        <hr style="border: 0; border-top: 1px dashed #ccc; margin: 40px 0;">
+
+        <section id="stack">
+            <h3>// Business Stack</h3>
+            <p>
+                <span class="tag">Project management</span>
+                <span class="tag">Data and business analysis</span>
+                <span class="tag">Business requirements</span>
+                <span class="tag">Risk analysis (Credit, market)</span>
+                <span class="tag">Trading</span>
+                <span class="tag">Accounting</span>
+            </p>
+            <h3>// Tech Stack</h3>
+            <p>
+                <span class="tag">AI</span>
+                <span class="tag">Quantum algorithms</span>
+                <span class="tag">Quantum Machine Learning</span>
+                <span class="tag">Python</span>
+                <span class="tag">Docker</span>
+                <span class="tag">AWS</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Excel</span>
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2 data-i18n="projects_title">01. Projekte & Demos</h2>
+            <div class="project-grid">
+                <article class="project-card">
+                    <h3>Credit risk engine</h3>
+                    <p data-i18n="project1_desc">Einführung einer neuen Kreditrisiko Architektur bei einer globalen
+                        Investementbank</p>
+                    <div>
+                        <span class="tag">Business requirements</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Python</span>
+                    </div>
+                    <p style="margin-top: 15px;">
+                        <a href="#" data-i18n="live_demo">Live Demo -></a><br>
+                        <a href="#" data-i18n="github_repo">GitHub Repo -></a>
+                    </p>
+                </article>
+
+                <article class="project-card">
+                    <h3 data-i18n="project2_title">KI Integration</h3>
+                    <p data-i18n="project2_desc">Einführung einer KI-gestützten Applikation für den Fachbereich einer
+                        deutschen Universalbank.</p>
+                    <div>
+                        <span class="tag">Business requirements</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Text2SQL</span>
+                        <span class="tag">RAG pipeline</span>
+                    </div>
+                    <p style="margin-top: 15px;">
+                        <a href="#" data-i18n="github_repo">GitHub Repo -></a>
+                    </p>
+                </article>
+
+                <article class="project-card">
+                    <h3 data-i18n="project3_title">Quantencomputer Framework</h3>
+                    <p data-i18n="project3_desc">Framework für die Entwicklung von Quantenschaltkreisen und Simulatoren
+                        und Quantencomputern.</p>
+                    <div>
+                        <span class="tag">Python</span>
+                        <span class="tag">API</span>
+                    </div>
+                    <p style="margin-top: 15px;">
+                        <a href="#" data-i18n="github_repo">GitHub Repo -></a>
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section id="references">
+            <h2 data-i18n="references_title">02. Referenzen</h2>
+
+            <div style="margin-bottom: 30px;">
+                <blockquote>
+                    "When I think of Niklas, the expression "true quantum expert" immediately comes to mind.
+                    We first met to do an introductory podcast on quantum computing. We hit it off straight away and
+                    after that we were able to do even more joint public webinars and video conferences about our shared
+                    passion for quantum computing, especially in the financial context. Niklas is not only able to
+                    present the complex topic of quantum computing in a simplified way, but also at the highest
+                    scientific level and, as a co-author, has published very good studies on the development of quantum
+                    algorithms in the context of problems in the financial industry.
+                    I can give Niklas my highest recommendation, not only as a leading quantum expert, but also as a
+                    very good team player to achieve common goals.."
+                    <span class="client-name">— Stefan Kister, IBM Quantum Technical Ambassador and Qiskit
+                        Advocat</span>
+                </blockquote>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 data-i18n="contact_title">03. Kontakt</h2>
+            <p><span data-i18n="availability">Ich bin aktuell verfügbar für neue Projekte ab <strong>Mai
+                        2026</strong>.</span></p>
+
+            <ul style="list-style: none; padding: 0;">
+                <li>Email: <a href="nik.kes@gmx.de">nik.kes@gmx.de</a></li>
+                <li>GitHub: <a href="#">https://github.com/niklasjosq</a></li>
+                <li>LinkedIn: <a href="#">https://www.linkedin.com/in/niklas-hegemann-77065542/</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 nikkes. Built with pure HTML/CSS.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const translations = {
+            de: {
+                greeting: "Hallo, ich bin Nik",
+                role1: "Advisor im Bereich Quantencomputing und Quantenkommunikation.",
+                role2: "Freelance AI Developer & Tech Consultant.",
+                role3: "Ich integriere komplexe AI workflows und Business getriebene daten pipelines.",
+                contact_link: "Kontakt aufnehmen",
+                work_link: "Meine Arbeit",
+                projects_title: "01. Projekte & Demos",
+                project1_desc: "Einführung einer neuen Kreditrisiko Architektur bei einer globalen Investmentbank",
+                live_demo: "Live Demo ->",
+                github_repo: "GitHub Repo ->",
+                project2_title: "KI Integration",
+                project2_desc: "Einführung einer KI-gestützten Applikation für den Fachbereich einer deutschen Universalbank.",
+                project3_title: "Quantencomputer Framework",
+                project3_desc: "Framework für die Entwicklung von Quantenschaltkreisen und Simulatoren und Quantencomputern.",
+                references_title: "02. Referenzen",
+                contact_title: "03. Kontakt",
+                availability: "Ich bin aktuell verfügbar für neue Projekte ab <strong>Mai 2026</strong>."
+            },
+            en: {
+                greeting: "Hello, I am Nik",
+                role1: "Advisor in Quantum Computing and Quantum Communication.",
+                role2: "Freelance AI Developer & Tech Consultant.",
+                role3: "I integrate complex AI workflows and business-driven data pipelines.",
+                contact_link: "Get in touch",
+                work_link: "My Work",
+                projects_title: "01. Projects & Demos",
+                project1_desc: "Implementation of a new credit risk architecture at a global investment bank.",
+                live_demo: "Live Demo ->",
+                github_repo: "GitHub Repo ->",
+                project2_title: "AI Integration",
+                project2_desc: "Introduction of an AI-supported application for a specialist department of a German universal bank.",
+                project3_title: "Quantum Computer Framework",
+                project3_desc: "Framework for the development of quantum circuits and simulators and quantum computers.",
+                references_title: "02. References",
+                contact_title: "03. Contact",
+                availability: "I am currently available for new projects starting <strong>May 2026</strong>."
+            }
+        };
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    // Check if original had bold tag to preserve it? 
+                    // Simple solution: availability uses innerHTML-like replacement or just text?
+                    // The 'availability' key contains HTML (<strong>). So we should use innerHTML.
+                    // For security, strict textContent is better, but here we control the strings.
+                    // Let's check which keys need HTML. Just 'availability'. All others are text.
+                    // But to be generic, let's simple replace html content if needed or just text.
+                    // Given this is a static personal site, innerHTML is fine.
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Update button text to the OTHER language
+            const btn = document.getElementById('lang-btn');
+            btn.innerText = lang === 'de' ? 'EN' : 'DE';
+
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        function toggleLanguage() {
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'de' ? 'en' : 'de';
+            setLanguage(newLang);
+        }
+
+        // Auto-detect
+        (function () {
+            const savedLang = localStorage.getItem('preferredLang');
+            if (savedLang) {
+                setLanguage(savedLang);
+            } else {
+                const browserLang = navigator.language || navigator.userLanguage;
+                if (browserLang.startsWith('de')) {
+                    setLanguage('de');
+                } else {
+                    setLanguage('en');
+                }
+            }
+        })();
+    </script>
+</body>
+
+</html>
