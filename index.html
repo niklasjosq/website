@@ -101,6 +101,29 @@
             box-shadow: 4px 4px 0px var(--text-color);
         }
 
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .service-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .service-card {
+            border: 2px solid var(--text-color);
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 4px 4px 0px var(--text-color);
+        }
+
         blockquote {
             border-left: 4px solid var(--text-color);
             margin: 0;
@@ -222,6 +245,37 @@
                 <span class="tag" data-i18n="stack_excel">Excel</span>
             </p>
         </section>
+
+        <section id="services">
+            <h2 data-i18n="services_title">01. Services</h2>
+            <div class="service-grid">
+
+                <div class="service-card">
+                    <h3 data-i18n="service1_title">Advisory & Audit</h3>
+                    <p data-i18n="service1_desc">Strategische Bewertung von Quanten- & KI-Roadmaps. Machbarkeitsstudien
+                        und Technical Due Diligence.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3 data-i18n="service2_title">Prototyping (PoC)</h3>
+                    <p data-i18n="service2_desc">Schnelle Entwicklung von MVP-Lösungen (Python/React) zur Validierung
+                        von Business Cases.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3 data-i18n="service3_title">Workshops</h3>
+                    <p data-i18n="service3_desc">Executive Trainings zu Quanten-Potenzialen und praktischer
+                        KI-Integration.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3 data-i18n="service4_title">Architecture</h3>
+                    <p data-i18n="service4_desc">Entwurf robuster Datenpipelines und Microservices für skalierbare
+                        KI-Anwendungen.</p>
+                </div>
+            </div>
+        </section>
+
 
         <section id="projects">
             <h2 data-i18n="projects_title">01. Projekte & Demos</h2>
@@ -371,7 +425,19 @@
                 stack_sql: "SQL",
                 stack_excel: "Excel",
                 impressum_link: "Impressum",
-                privacy_link: "Datenschutz"
+                privacy_link: "Datenschutz",
+                services_title: "01. Services",
+                service1_title: "Advisory & Audit",
+                service1_desc: "Strategische Bewertung von Quanten- & KI-Roadmaps. Machbarkeitsstudien und Technical Due Diligence.",
+                service2_title: "Prototyping (PoC)",
+                service2_desc: "Schnelle Entwicklung von MVP-Lösungen (Python/React) zur Validierung von Business Cases.",
+                service3_title: "Workshops",
+                service3_desc: "Executive Trainings zu Quanten-Potenzialen und praktischer KI-Integration.",
+                service4_title: "Architecture",
+                service4_desc: "Entwurf robuster Datenpipelines und Microservices für skalierbare KI-Anwendungen.",
+                projects_title: "02. Projekte & Demos",
+                references_title: "03. Referenzen",
+                contact_title: "04. Kontakt"
             },
             en: {
                 greeting: "Hello, I am Nik",
@@ -411,7 +477,19 @@
                 stack_sql: "SQL",
                 stack_excel: "Excel",
                 impressum_link: "Imprint",
-                privacy_link: "Privacy Policy"
+                privacy_link: "Privacy Policy",
+                services_title: "01. Services",
+                service1_title: "Advisory & Audit",
+                service1_desc: "Strategic assessment of Quantum & AI roadmaps. Feasibility studies and Technical Due Diligence.",
+                service2_title: "Prototyping (PoC)",
+                service2_desc: "Rapid development of MVP solutions (Python/React) to validate business cases.",
+                service3_title: "Workshops",
+                service3_desc: "Executive trainings on quantum potentials and practical AI integration.",
+                service4_title: "Architecture",
+                service4_desc: "Design of robust data pipelines and microservices for scalable AI applications.",
+                projects_title: "02. Projects & Demos",
+                references_title: "03. References",
+                contact_title: "04. Contact"
             }
         };
 
