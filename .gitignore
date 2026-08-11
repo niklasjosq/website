@@ -39,6 +39,11 @@ Thumbs.db
 ehthumbs.db
 desktop.ini
 
+# --- marketing collateral: lives here for convenience, must never be served ---
+# Untracked files are never deployed by GitHub Pages, so ignoring is sufficient.
+marketing/
+*.linkedin.md
+
 # --- working files that must never be published ---
 *.log
 *.orig
