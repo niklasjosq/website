@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoicer v2 — Prototyp einer Buchhaltung für Einzelunternehmer · Hegemann Technologies</title>
+    <meta name="description"
+        content="Klickbarer Produktprototyp einer deutschen Buchhaltungs-App für Einzelunternehmer: E-Rechnung (Factur-X/ZUGFeRD), Belegerfassung per OCR, UStVA mit ELSTER-XML-Export, EÜR, Bankabgleich und ein lesender KI-Assistent. Läuft vollständig offline im Browser.">
+    <meta name="author" content="Niklas Hegemann">
+    <link rel="canonical" href="https://niklasjosq.github.io/website/invoicer.html">
+    <link rel="icon" type="image/x-icon" href="ht.ico">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Hegemann Technologies">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:title" content="Invoicer v2 — Prototyp einer Buchhaltung für Einzelunternehmer">
+    <meta property="og:description"
+        content="Klickbarer Prototyp: E-Rechnung, OCR-Belegerfassung, UStVA mit ELSTER-XML, EÜR, Bankabgleich, KI-Assistent. Läuft vollständig offline im Browser.">
+    <meta property="og:url" content="https://niklasjosq.github.io/website/invoicer.html">
+    <meta property="og:image" content="https://niklasjosq.github.io/website/og-invoicer.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --accent-color: #000000;
+            --border-color: #e0e0e0;
+            --code-bg: #f4f4f4;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: "Courier New", Courier, "Lucida Sans Typewriter", monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-top: 2.5em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 2.5rem;
+            border-bottom: 4px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 1px solid var(--text-color);
+            transition: background 0.2s;
+        }
+
+        a:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        .tag {
+            background: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            border: 1px solid #ccc;
+            margin-right: 5px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .project-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .project-card {
+            border: 2px solid var(--text-color);
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 4px 4px 0px var(--text-color);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .service-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .service-card {
+            border: 2px solid var(--text-color);
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 4px 4px 0px var(--text-color);
+        }
+
+        blockquote {
+            border-left: 4px solid var(--text-color);
+            margin: 0;
+            padding-left: 20px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .client-name {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--border-color);
+            font-size: 0.8rem;
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 15px;
+            height: 2.5rem;
+            background-color: var(--text-color);
+            animation: blink 1s infinite;
+            vertical-align: bottom;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+
+
+        .lang-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: inherit;
+            background: var(--bg-color);
+            border: 2px solid var(--text-color);
+            padding: 5px 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .lang-toggle:hover {
+            background: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        #secure-contact {
+            transition: color 0.3s ease;
+        }
+
+        #secure-contact[data-decoded="true"] {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            right: 80px;
+            height: 35px;
+            width: auto;
+        }
+
+        /* --- invoicer.html additions --- */
+        .cta {
+            margin: 35px 0 6px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .cta a {
+            display: inline-block;
+            border: 2px solid var(--text-color);
+            border-bottom-width: 2px;
+            padding: 14px 22px;
+        }
+
+        .cta a:hover {
+            box-shadow: 4px 4px 0px var(--text-color);
+        }
+
+        .cta-note {
+            margin: 0 0 10px;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        .callout {
+            border: 2px solid var(--text-color);
+            background: var(--code-bg);
+            padding: 5px 22px;
+            margin: 30px 0;
+        }
+
+        .callout ul {
+            padding-left: 20px;
+        }
+
+        .callout li {
+            margin-bottom: 12px;
+        }
+
+        main ul {
+            padding-left: 20px;
+        }
+
+        main li {
+            margin-bottom: 10px;
+        }
+
+        figure {
+            margin: 30px 0;
+        }
+
+        figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 2px solid var(--text-color);
+        }
+
+        figcaption {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            opacity: 0.75;
+        }
+
+        code {
+            background: var(--code-bg);
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 1px 5px;
+            font-size: 0.9em;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid var(--border-color);
+            margin: 30px 0 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="logo_ht_plain.png" alt="Logo" class="logo">
+    <button id="lang-btn" class="lang-toggle" onclick="toggleLanguage()">EN</button>
+
+    <div class="container">
+
+        <header>
+            <p><a href="index.html" data-i18n="back_home">&larr; Zurück zur Startseite</a></p>
+            <h1>Invoicer v2</h1>
+            <p style="font-size: 1.2rem; margin-top: 20px;">
+                > <span data-i18n="iv_tagline">Buchhaltung für Einzelunternehmer — als klickbarer
+                    Produktprototyp.</span><br>
+                > <span data-i18n="iv_tagline2">Vom Konzept zur bedienbaren Oberfläche in Tagen, nicht Monaten.</span>
+            </p>
+        </header>
+
+        <hr>
+
+        <main>
+
+            <p class="cta">
+                <a href="demos/invoicer/index.html" target="_blank" rel="noopener"
+                    data-i18n="iv_cta">Prototyp öffnen -></a>
+            </p>
+            <p class="cta-note" data-i18n="iv_cta_note">1,4 MB &middot; öffnet in neuem Tab &middot; Desktop empfohlen
+                &middot; keine Anmeldung</p>
+
+            <div id="mobile-warning" class="callout" hidden>
+                <p data-i18n="iv_mobile_note"><strong>Hinweis für Mobilgeräte:</strong> Der Prototyp ist für den
+                    Desktop gebaut (1440&times;900). Auf dem Handy sehen Sie eine verkleinerte, aber vollständige
+                    Ansicht — zum Lesen zoomen. Die Screenshots weiter unten zeigen dieselben Bildschirme in
+                    voller Größe.</p>
+            </div>
+
+            <div id="old-browser" class="callout" hidden>
+                <p data-i18n="iv_oldbrowser"><strong>Ihr Browser ist zu alt für den Prototyp.</strong> Er benötigt
+                    <code>DecompressionStream</code> (Safari 16.4+, Chrome 80+, Firefox 113+). Die Screenshots
+                    weiter unten zeigen alle Bildschirme.</p>
+            </div>
+
+            <section id="was">
+                <h2 data-i18n="iv_s1_title">01. Was es ist</h2>
+                <p data-i18n="iv_s1_body">Invoicer v2 ist die Buchhaltung für deutsche Einzelunternehmer mit
+                    Ist-Versteuerung — von der Ausgangsrechnung bis zur Umsatzsteuer-Voranmeldung. Der Prototyp
+                    zeigt den vollständigen Ablauf: Rechnungen schreiben, Belege einlesen, Kontoumsätze zuordnen,
+                    UStVA und EÜR daraus ableiten, Liquidität und Steuertermine im Blick behalten.</p>
+                <p data-i18n="iv_s1_body2">Der fachliche Kern ist das Zuflussprinzip: erst der zugeordnete
+                    Kontoumsatz setzt das Zahlungsdatum — und damit den Zeitpunkt, zu dem ein Umsatz
+                    steuerlich zählt. Genau darum ist der Bankabgleich in diesem Entwurf ein eigener,
+                    entscheidungsgeführter Arbeitsschritt und kein Nebenschauplatz.</p>
+                <div>
+                    <span class="tag">E-Rechnung / ZUGFeRD</span>
+                    <span class="tag">Factur-X</span>
+                    <span class="tag">OCR-Belegerfassung</span>
+                    <span class="tag">UStVA / ELSTER-XML</span>
+                    <span class="tag">EÜR</span>
+                    <span class="tag">CAMT.053 / CSV</span>
+                    <span class="tag">Bankabgleich</span>
+                    <span class="tag">Liquiditätsplanung</span>
+                    <span class="tag">KI-Assistent</span>
+                </div>
+            </section>
+
+            <section id="kann">
+                <h2 data-i18n="iv_s2_title">02. Was der Prototyp kann</h2>
+                <p data-i18n="iv_s2_intro">Zwölf Bildschirme, vollständig klickbar. Kein Backend, keine Anmeldung,
+                    kein Netzwerkzugriff — die gesamte Logik läuft im Browser:</p>
+                <ul>
+                    <li data-i18n="iv_f1"><strong>Rechnung erstellen</strong> — Positionen bearbeiten, Netto/USt/Brutto
+                        rechnet live mit, PDF-Vorschau baut sich neu auf.</li>
+                    <li data-i18n="iv_f2"><strong>Buchungen</strong> — Filter, Inline-Bearbeitung, und ein Dialog, der
+                        aus zwei von drei Werten (Netto, USt, Brutto) den dritten löst.</li>
+                    <li data-i18n="iv_f3"><strong>Import</strong> — simulierte Belegerkennung mit Fortschritt,
+                        Konfidenz, Duplikatswarnung und Original/OCR/Felder-Vergleich.</li>
+                    <li data-i18n="iv_f4"><strong>UStVA</strong> — Formularspiegel des amtlichen Vordrucks USt 1 A,
+                        XSD-Prüfung, ELSTER-XML-Export, Bundesland ändert die 13-stellige Steuernummer.</li>
+                    <li data-i18n="iv_f5"><strong>Bank &amp; Abgleich</strong> — eine Entscheidungs-Warteschlange mit
+                        bewerteten Vorschlägen, Teilzahlungs-Warnung und nachträglicher Umbuchung.</li>
+                    <li data-i18n="iv_f6"><strong>Liquidität &amp; Assistent</strong> — Steuerterminkalender,
+                        Rücklagen-Deckung, und ein Assistent, der ausdrücklich nur liest und nicht rechnet.</li>
+                </ul>
+            </section>
+
+            <section id="screens">
+                <h2 data-i18n="iv_s5_title">03. Bildschirme</h2>
+                <figure>
+                    <img src="screens/ustva.webp" width="1440" height="900" loading="lazy"
+                        alt="UStVA-Bildschirm: Formularspiegel des amtlichen Vordrucks USt 1 A mit Kennzahlen, XSD-Prüfung und ELSTER-XML-Export.">
+                    <figcaption data-i18n="iv_cap_ustva">UStVA — der Formularspiegel zeigt die amtlichen Zeilen und
+                        Kennzahlen des Vordrucks USt 1 A. Rechts die Prüfung und der XML-Export für ELSTER.</figcaption>
+                </figure>
+                <figure>
+                    <img src="screens/bank.webp" width="1440" height="900" loading="lazy"
+                        alt="Bank &amp; Abgleich: Warteschlange mit Kontoumsätzen, bewerteten Zuordnungsvorschlägen und Teilzahlungs-Warnung.">
+                    <figcaption data-i18n="iv_cap_bank">Bank &amp; Abgleich — jeder Umsatz wird zu einer Entscheidung
+                        mit begründeten Vorschlägen. Die Zuordnung setzt das steuerlich relevante Zahlungsdatum.
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="screens/rechnung.webp" width="1440" height="900" loading="lazy"
+                        alt="Rechnung erstellen: Positionen mit Steuersätzen links, live aufgebaute PDF-Vorschau rechts.">
+                    <figcaption data-i18n="iv_cap_rechnung">Rechnung erstellen — Positionen links, die PDF-Vorschau
+                        rechts baut sich bei jeder Änderung neu auf.</figcaption>
+                </figure>
+                <figure>
+                    <img src="screens/import.webp" width="1440" height="900" loading="lazy"
+                        alt="Import: Belegerkennung mit Fortschrittsanzeige, Konfidenzwerten und Duplikatswarnungen.">
+                    <figcaption data-i18n="iv_cap_import">Import — Belegerkennung mit Konfidenz je Feld,
+                        Duplikatserkennung und einem Vergleich von Original, OCR-Text und übernommenen Feldern.
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section id="bevor">
+                <h2 data-i18n="iv_s3_title">04. Bevor Sie klicken</h2>
+                <div class="callout">
+                    <ul>
+                        <li data-i18n="iv_d1"><strong>Prototyp, kein Produkt.</strong> Er zeigt, wie die Anwendung
+                            sich anfühlen soll. Es gibt kein Backend, keine Anmeldung und keine Datenspeicherung.</li>
+                        <li data-i18n="iv_d2"><strong>Keine Steuerberatung.</strong> UStVA, EÜR und Steuertermine
+                            sind zur Veranschaulichung dargestellt. Sie ersetzen keine steuerliche Beratung, und
+                            nichts hier ist eine Einreichung beim Finanzamt.</li>
+                        <li data-i18n="iv_d3"><strong>Alle Daten sind erfunden.</strong> Namen, Adressen, Beträge,
+                            Belege, Steuernummern und Bankverbindungen sind Platzhalter. Sie beziehen sich auf keine
+                            reale Person, kein reales Unternehmen und kein reales Konto.</li>
+                        <li data-i18n="iv_d4"><strong>Desktop-first, mit Absicht.</strong> Gebaut für 1440&times;900,
+                            nutzbar ab 1024 px. Buchhaltung wird am Schreibtisch gemacht — eine Handy-Ansicht war
+                            bewusst nicht Teil des Entwurfs.</li>
+                        <li data-i18n="iv_d5"><strong>Oberfläche auf Deutsch.</strong> Weil das deutsche Steuerrecht
+                            die Fachsprache vorgibt: UStVA, Kennzahlen, Ist-Versteuerung, ELSTER.</li>
+                        <li data-i18n="iv_d6"><strong>Läuft vollständig offline.</strong> Eine Datei, keine externen
+                            Ressourcen, keine Netzwerkaufrufe. Alles passiert in Ihrem Browser.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="warum">
+                <h2 data-i18n="iv_s4_title">05. Warum das relevant ist</h2>
+                <p data-i18n="iv_s4_body">Der eigentliche Punkt ist nicht die Buchhaltung — es ist die
+                    Geschwindigkeit. Fachlich dichte Software scheitert selten an der Technik, sondern daran, dass
+                    Anforderungen erst dann konkret werden, wenn man etwas bedienen kann. Ein Prototyp auf diesem
+                    Detailgrad verlagert diese Klärung nach vorne: vor die Architektur, vor das Budget, vor die
+                    erste Zeile Produktionscode.</p>
+                <p data-i18n="iv_s4_body2">Denselben Ansatz nutzen wir in Kundenprojekten — für Fachbereiche, die
+                    ihre Anforderungen sehen wollen, und für Investoren, die ein Produktversprechen prüfen möchten,
+                    bevor es gebaut ist.</p>
+                <p style="margin-top: 25px;">
+                    <a href="index.html#services" data-i18n="iv_link_services">Unsere Leistungen -></a>
+                    &nbsp;|&nbsp;
+                    <a href="index.html#contact" data-i18n="iv_link_contact">Kontakt aufnehmen -></a>
+                </p>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>
+                <span data-i18n="footer_text">&copy; 2026 Hegemann Technologies. Gegründet und betrieben von Niklas
+                    Hegemann. Built with pure HTML/CSS.</span><br>
+                <a href="impressum.html" data-i18n="impressum_link">Impressum</a> |
+                <a href="datenschutz.html" data-i18n="privacy_link">Datenschutz</a>
+            </p>
+        </footer>
+
+    </div>
+
+    <script>
+        const translations = {
+            de: {
+                back_home: "&larr; Zurück zur Startseite",
+                iv_tagline: "Buchhaltung für Einzelunternehmer — als klickbarer Produktprototyp.",
+                iv_tagline2: "Vom Konzept zur bedienbaren Oberfläche in Tagen, nicht Monaten.",
+                iv_cta: "Prototyp öffnen ->",
+                iv_cta_note: "1,4 MB &middot; öffnet in neuem Tab &middot; Desktop empfohlen &middot; keine Anmeldung",
+                iv_mobile_note: "<strong>Hinweis für Mobilgeräte:</strong> Der Prototyp ist für den Desktop gebaut (1440&times;900). Auf dem Handy sehen Sie eine verkleinerte, aber vollständige Ansicht — zum Lesen zoomen. Die Screenshots weiter unten zeigen dieselben Bildschirme in voller Größe.",
+                iv_oldbrowser: "<strong>Ihr Browser ist zu alt für den Prototyp.</strong> Er benötigt <code>DecompressionStream</code> (Safari 16.4+, Chrome 80+, Firefox 113+). Die Screenshots weiter unten zeigen alle Bildschirme.",
+
+                iv_s1_title: "01. Was es ist",
+                iv_s1_body: "Invoicer v2 ist die Buchhaltung für deutsche Einzelunternehmer mit Ist-Versteuerung — von der Ausgangsrechnung bis zur Umsatzsteuer-Voranmeldung. Der Prototyp zeigt den vollständigen Ablauf: Rechnungen schreiben, Belege einlesen, Kontoumsätze zuordnen, UStVA und EÜR daraus ableiten, Liquidität und Steuertermine im Blick behalten.",
+                iv_s1_body2: "Der fachliche Kern ist das Zuflussprinzip: erst der zugeordnete Kontoumsatz setzt das Zahlungsdatum — und damit den Zeitpunkt, zu dem ein Umsatz steuerlich zählt. Genau darum ist der Bankabgleich in diesem Entwurf ein eigener, entscheidungsgeführter Arbeitsschritt und kein Nebenschauplatz.",
+
+                iv_s2_title: "02. Was der Prototyp kann",
+                iv_s2_intro: "Zwölf Bildschirme, vollständig klickbar. Kein Backend, keine Anmeldung, kein Netzwerkzugriff — die gesamte Logik läuft im Browser:",
+                iv_f1: "<strong>Rechnung erstellen</strong> — Positionen bearbeiten, Netto/USt/Brutto rechnet live mit, PDF-Vorschau baut sich neu auf.",
+                iv_f2: "<strong>Buchungen</strong> — Filter, Inline-Bearbeitung, und ein Dialog, der aus zwei von drei Werten (Netto, USt, Brutto) den dritten löst.",
+                iv_f3: "<strong>Import</strong> — simulierte Belegerkennung mit Fortschritt, Konfidenz, Duplikatswarnung und Original/OCR/Felder-Vergleich.",
+                iv_f4: "<strong>UStVA</strong> — Formularspiegel des amtlichen Vordrucks USt 1 A, XSD-Prüfung, ELSTER-XML-Export, Bundesland ändert die 13-stellige Steuernummer.",
+                iv_f5: "<strong>Bank &amp; Abgleich</strong> — eine Entscheidungs-Warteschlange mit bewerteten Vorschlägen, Teilzahlungs-Warnung und nachträglicher Umbuchung.",
+                iv_f6: "<strong>Liquidität &amp; Assistent</strong> — Steuerterminkalender, Rücklagen-Deckung, und ein Assistent, der ausdrücklich nur liest und nicht rechnet.",
+
+                iv_s5_title: "03. Bildschirme",
+                iv_cap_ustva: "UStVA — der Formularspiegel zeigt die amtlichen Zeilen und Kennzahlen des Vordrucks USt 1 A. Rechts die Prüfung und der XML-Export für ELSTER.",
+                iv_cap_bank: "Bank &amp; Abgleich — jeder Umsatz wird zu einer Entscheidung mit begründeten Vorschlägen. Die Zuordnung setzt das steuerlich relevante Zahlungsdatum.",
+                iv_cap_rechnung: "Rechnung erstellen — Positionen links, die PDF-Vorschau rechts baut sich bei jeder Änderung neu auf.",
+                iv_cap_import: "Import — Belegerkennung mit Konfidenz je Feld, Duplikatserkennung und einem Vergleich von Original, OCR-Text und übernommenen Feldern.",
+
+                iv_s3_title: "04. Bevor Sie klicken",
+                iv_d1: "<strong>Prototyp, kein Produkt.</strong> Er zeigt, wie die Anwendung sich anfühlen soll. Es gibt kein Backend, keine Anmeldung und keine Datenspeicherung.",
+                iv_d2: "<strong>Keine Steuerberatung.</strong> UStVA, EÜR und Steuertermine sind zur Veranschaulichung dargestellt. Sie ersetzen keine steuerliche Beratung, und nichts hier ist eine Einreichung beim Finanzamt.",
+                iv_d3: "<strong>Alle Daten sind erfunden.</strong> Namen, Adressen, Beträge, Belege, Steuernummern und Bankverbindungen sind Platzhalter. Sie beziehen sich auf keine reale Person, kein reales Unternehmen und kein reales Konto.",
+                iv_d4: "<strong>Desktop-first, mit Absicht.</strong> Gebaut für 1440&times;900, nutzbar ab 1024 px. Buchhaltung wird am Schreibtisch gemacht — eine Handy-Ansicht war bewusst nicht Teil des Entwurfs.",
+                iv_d5: "<strong>Oberfläche auf Deutsch.</strong> Weil das deutsche Steuerrecht die Fachsprache vorgibt: UStVA, Kennzahlen, Ist-Versteuerung, ELSTER.",
+                iv_d6: "<strong>Läuft vollständig offline.</strong> Eine Datei, keine externen Ressourcen, keine Netzwerkaufrufe. Alles passiert in Ihrem Browser.",
+
+                iv_s4_title: "05. Warum das relevant ist",
+                iv_s4_body: "Der eigentliche Punkt ist nicht die Buchhaltung — es ist die Geschwindigkeit. Fachlich dichte Software scheitert selten an der Technik, sondern daran, dass Anforderungen erst dann konkret werden, wenn man etwas bedienen kann. Ein Prototyp auf diesem Detailgrad verlagert diese Klärung nach vorne: vor die Architektur, vor das Budget, vor die erste Zeile Produktionscode.",
+                iv_s4_body2: "Denselben Ansatz nutzen wir in Kundenprojekten — für Fachbereiche, die ihre Anforderungen sehen wollen, und für Investoren, die ein Produktversprechen prüfen möchten, bevor es gebaut ist.",
+                iv_link_services: "Unsere Leistungen ->",
+                iv_link_contact: "Kontakt aufnehmen ->",
+
+                impressum_link: "Impressum",
+                privacy_link: "Datenschutz",
+                footer_text: "&copy; 2026 Hegemann Technologies. Gegründet und betrieben von Niklas Hegemann. Built with pure HTML/CSS."
+            },
+            en: {
+                back_home: "&larr; Back to homepage",
+                iv_tagline: "Bookkeeping for German sole proprietors — as a clickable product prototype.",
+                iv_tagline2: "From concept to an operable interface in days, not months.",
+                iv_cta: "Open the prototype ->",
+                iv_cta_note: "1.4 MB &middot; opens in a new tab &middot; desktop recommended &middot; no sign-up",
+                iv_mobile_note: "<strong>Note for mobile:</strong> the prototype is built for desktop (1440&times;900). On a phone you get a scaled-down but complete view — zoom in to read it. The screenshots below show the same screens at full size.",
+                iv_oldbrowser: "<strong>Your browser is too old for the prototype.</strong> It needs <code>DecompressionStream</code> (Safari 16.4+, Chrome 80+, Firefox 113+). The screenshots below show every screen.",
+
+                iv_s1_title: "01. What it is",
+                iv_s1_body: "Invoicer v2 is bookkeeping for German sole proprietors on cash accounting (Ist-Versteuerung) — from the outgoing invoice through to the VAT return. The prototype walks the whole path: write invoices, capture receipts, reconcile bank transactions, derive the VAT return and the cash-basis P&amp;L from them, and keep liquidity and tax deadlines in view.",
+                iv_s1_body2: "The domain crux is the cash-receipt principle: only the reconciled bank transaction sets the payment date — and with it the moment revenue counts for tax. That is exactly why bank reconciliation is its own decision-led step in this design rather than a footnote.",
+
+                iv_s2_title: "02. What the prototype does",
+                iv_s2_intro: "Twelve screens, fully clickable. No backend, no sign-up, no network access — all the logic runs in the browser:",
+                iv_f1: "<strong>Create invoice</strong> — edit line items, net/VAT/gross recalculate live, the PDF preview rebuilds itself.",
+                iv_f2: "<strong>Ledger</strong> — filters, inline editing, and a dialog that solves the third of net/VAT/gross from any two.",
+                iv_f3: "<strong>Import</strong> — simulated receipt extraction with progress, confidence, duplicate flags and an original/OCR/fields comparison.",
+                iv_f4: "<strong>VAT return (UStVA)</strong> — a mirror of the official USt 1 A form, XSD validation, ELSTER XML export; changing the federal state recomputes the 13-digit tax number.",
+                iv_f5: "<strong>Bank &amp; reconciliation</strong> — a decision queue with scored suggestions, a partial-payment warning and reversible postings.",
+                iv_f6: "<strong>Liquidity &amp; assistant</strong> — tax-deadline calendar, reserve coverage, and an assistant that explicitly only reads and never does the arithmetic.",
+
+                iv_s5_title: "03. Screens",
+                iv_cap_ustva: "VAT return — the form mirror reproduces the official rows and code numbers of the USt 1 A form. Validation and the ELSTER XML export sit on the right.",
+                iv_cap_bank: "Bank &amp; reconciliation — every transaction becomes a decision with reasoned suggestions. The match is what sets the tax-relevant payment date.",
+                iv_cap_rechnung: "Create invoice — line items on the left; the PDF preview on the right rebuilds on every change.",
+                iv_cap_import: "Import — receipt extraction with per-field confidence, duplicate detection, and a comparison of original, OCR text and the fields taken from it.",
+
+                iv_s3_title: "04. Before you click",
+                iv_d1: "<strong>A prototype, not a product.</strong> It shows how the application should feel. There is no backend, no sign-up and no data storage.",
+                iv_d2: "<strong>Not tax advice.</strong> The VAT return, cash-basis P&amp;L and tax deadlines are shown for illustration. They do not replace professional tax advice, and nothing here is a filing with the tax office.",
+                iv_d3: "<strong>All data is invented.</strong> Names, addresses, amounts, receipts, tax numbers and bank details are placeholders. They refer to no real person, no real company and no real account.",
+                iv_d4: "<strong>Desktop-first, deliberately.</strong> Built for 1440&times;900, usable from 1024 px. Bookkeeping happens at a desk — a phone layout was consciously not part of the design.",
+                iv_d5: "<strong>The interface is German.</strong> Because German tax law sets the vocabulary: UStVA, Kennzahlen, Ist-Versteuerung, ELSTER.",
+                iv_d6: "<strong>Runs entirely offline.</strong> One file, no external resources, no network calls. Everything happens in your browser.",
+
+                iv_s4_title: "05. Why this matters",
+                iv_s4_body: "The point isn't really bookkeeping — it's speed. Domain-heavy software rarely fails on the technology; it fails because requirements only get concrete once there is something to operate. A prototype at this level of detail pulls that clarification forward: ahead of the architecture, ahead of the budget, ahead of the first line of production code.",
+                iv_s4_body2: "We use the same approach in client work — for business units that want to see their requirements, and for investors who want to test a product promise before it is built.",
+                iv_link_services: "Our services ->",
+                iv_link_contact: "Get in touch ->",
+
+                impressum_link: "Imprint",
+                privacy_link: "Privacy Policy",
+                footer_text: "&copy; 2026 Hegemann Technologies. Founded and operated by Niklas Hegemann. Built with pure HTML/CSS."
+            }
+        };
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            const btn = document.getElementById('lang-btn');
+            btn.innerText = lang === 'de' ? 'EN' : 'DE';
+
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        function toggleLanguage() {
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'de' ? 'en' : 'de';
+            setLanguage(newLang);
+        }
+
+        (function () {
+            const savedLang = localStorage.getItem('preferredLang');
+            if (savedLang) {
+                setLanguage(savedLang);
+            } else {
+                const browserLang = navigator.language || navigator.userLanguage;
+                if (browserLang.startsWith('de')) {
+                    setLanguage('de');
+                } else {
+                    setLanguage('en');
+                }
+            }
+        })();
+
+        // The prototype has no phone layout (fixed 214px sidebar, no media queries),
+        // so warn rather than let a mobile visitor assume it is broken.
+        (function () {
+            if (window.matchMedia('(max-width: 900px), (pointer: coarse)').matches) {
+                document.getElementById('mobile-warning').hidden = false;
+            }
+            // The self-extracting bundle gunzips its assets with DecompressionStream.
+            if (!('DecompressionStream' in window)) {
+                document.getElementById('old-browser').hidden = false;
+            }
+        })();
+    </script>
+
+</body>
+
+</html>

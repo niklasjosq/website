@@ -34,7 +34,13 @@ This is a static website built with pure HTML, CSS, and JavaScript.
 *   `index.html`: Main landing page with multi-language support (DE/EN).
 *   `impressum.html`: Legal Notice (Imprint).
 *   `datenschutz.html`: Privacy Policy.
-*   `assets/`: (Directory for images or other assets, if applicable).
+*   `invoicer.html`: Showcase page for the Invoicer v2 product prototype (DE/EN).
+*   `demos/invoicer/`: The Invoicer v2 prototype itself — a single self-contained,
+    fully offline HTML file. Generated: edit the source in the AccountingAI repo
+    (`docs/design_handoff/`) and re-run `rebundle.py` then `publish.py`. Do not edit by hand.
+*   `screens/`: Screenshots used by `invoicer.html`.
+*   `og-invoicer.png`: Social-sharing card for `invoicer.html`.
+*   `.nojekyll`: Disables GitHub Pages' Jekyll processing (the site uses none of it).
 
 ## 🌍 Localization
 
