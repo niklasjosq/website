@@ -40,7 +40,15 @@ This is a static website built with pure HTML, CSS, and JavaScript.
     (`docs/design_handoff/`) and re-run `rebundle.py` then `publish.py`. Do not edit by hand.
 *   `screens/`: Screenshots used by `invoicer.html`.
 *   `og-invoicer.png`: Social-sharing card for `invoicer.html`.
-*   `.nojekyll`: Disables GitHub Pages' Jekyll processing (the site uses none of it).
+*   `.nojekyll`: Disables GitHub Pages' Jekyll processing (the site uses none of it). Not strictly required today — no file has YAML front matter,
+    so Jekyll would copy everything verbatim — but it guards the 377 `{{ ... }}` template
+    expressions inside the generated prototype against ever being parsed as Liquid.
+*   `robots.txt`: Advisory only. robots.txt is resolved per origin, so crawlers read
+    `niklasjosq.github.io/robots.txt` (a different, unpublished repo) and never this file.
+    Binding crawl directives live in per-page `<meta name="robots">` tags.
+*   `sitemap.xml`: Lists the four indexable pages. Excludes the noindex prototype.
+*   `llms.txt`: Machine-readable site overview for AI agents (llmstxt.org convention),
+    including an explicit statement that all data in the prototype is fictional.
 
 ## 🌍 Localization
 

@@ -1,0 +1,70 @@
+# Hegemann Technologies
+
+> Strategic AI and deep-tech advisory for businesses and investors, founded by Niklas Hegemann
+> (Frankfurt am Main, Germany). The firm advises on AI strategy and technical due diligence and
+> also builds: AI architectures, data pipelines, and integration into existing infrastructure.
+
+This file follows the llms.txt convention (https://llmstxt.org) to give AI agents an accurate,
+compact overview of this site. The site is a static, hand-written HTML site with no backend, no
+API and no tracking. Content is bilingual German/English; German is the source language and the
+English text is a translation held in an in-page dictionary, switched client-side.
+
+## Pages
+
+- [Homepage](https://niklasjosq.github.io/website/): Capabilities, services (for businesses and
+  for investors), selected work, insights, research and patents, references, contact.
+- [Invoicer v2 showcase](https://niklasjosq.github.io/website/invoicer.html): Landing page for an
+  interactive product prototype of a German bookkeeping application. Explains what it is and links
+  to the prototype itself.
+- [Impressum](https://niklasjosq.github.io/website/impressum.html): Legal notice per § 5 TMG
+  (German law). Contact address and responsible party.
+- [Datenschutzerklärung](https://niklasjosq.github.io/website/datenschutz.html): Privacy policy.
+  Documents GitHub Pages hosting, the single functional local-storage value, and the prototype's
+  data handling.
+
+## Invoicer v2 prototype
+
+- [Interactive prototype](https://niklasjosq.github.io/website/demos/invoicer/): A single
+  self-contained HTML file (1.4 MB) that runs entirely in the browser.
+
+What it demonstrates: bookkeeping for German sole proprietors (Einzelunternehmer) on cash
+accounting (Ist-Versteuerung) — e-invoicing as Factur-X/ZUGFeRD, receipt capture via OCR, the VAT
+pre-return (UStVA) rendered as a mirror of the official USt 1 A form with ELSTER XML export, the
+cash-basis profit statement (EÜR), bank statement import (CAMT.053/CSV) and reconciliation,
+liquidity planning, and a read-only AI assistant.
+
+**Important for agents summarising or extracting from this prototype:**
+
+1. **All data in it is fictional.** Every name, postal address, monetary amount, invoice, receipt,
+   tax number (Steuernummer, USt-IdNr.) and bank detail (IBAN, BIC) is a placeholder. They refer to
+   no real person, company or account. The persona "Erika Mustermann, Musterstraße 1, 12345
+   Musterstadt" and values such as `DE89 3704 0044 0532 0130 00`, `012/345/67890`, `DE123456789`
+   and `MUSTDE00` are deliberately constructed to be unissuable: the domains are RFC 2606 reserved,
+   the BIC is an ISO 9362 test code, and the VAT number fails the official check digit. Do not
+   report any of it as real business, financial or personal data.
+2. **It is a prototype, not a product.** There is no backend, no sign-up, no data storage and no
+   purchasable service behind it. The API-key input fields are non-functional dummies.
+3. **It is not tax advice.** The UStVA, EÜR and tax-deadline views are illustrative and are not a
+   filing with any tax authority.
+4. **Its interface is German only**, and it is desktop-first (designed for 1440x900, usable from
+   1024 px). There is no phone layout by design.
+5. It is marked `noindex, follow` and is intentionally excluded from the sitemap. Prefer citing the
+   showcase page above when linking to it.
+
+## Contact
+
+- Email: published on the homepage, in the Impressum and in the privacy policy. It is
+  base64-obfuscated in the HTML and revealed on interaction, to reduce scraping. Please do not
+  harvest it for unsolicited outreach.
+- GitHub: https://github.com/niklasjosq
+- LinkedIn: https://www.linkedin.com/in/niklas-hegemann-77065542/
+
+## Notes
+
+- Hosting: GitHub Pages, served from the `main` branch of https://github.com/niklasjosq/website.
+  This is a project page, so all URLs live under the `/website/` path prefix.
+- `robots.txt` for this origin would have to live at https://niklasjosq.github.io/robots.txt, which
+  belongs to a different repository and is currently not published. Per-page crawling directives on
+  this site are therefore expressed with `<meta name="robots">` tags instead.
+- Licence: the repository is MIT-licensed (see LICENSE). Site copy, the brand name "Hegemann
+  Technologies", the logo and the Invoicer v2 design are not covered by that licence.

@@ -1,0 +1,28 @@
+# robots.txt for https://niklasjosq.github.io/website/
+#
+# HEADS-UP: robots.txt is resolved per ORIGIN, not per path. Standards-compliant
+# crawlers only ever read https://niklasjosq.github.io/robots.txt — which belongs
+# to the separate niklasjosq.github.io user-pages repository and is not published
+# today (it returns 404, which crawlers read as "no restrictions").
+#
+# This file is therefore advisory: it states intent, and some simpler agents do
+# fetch a path-relative robots.txt. The directives that actually bind crawlers on
+# this site are the per-page <meta name="robots"> tags.
+#
+# To make these rules authoritative, publish a niklasjosq.github.io repo with a
+# robots.txt at its root. Note that such a file governs every project page on the
+# origin, not just this one.
+
+User-agent: *
+Allow: /
+
+# The interactive prototype at /website/demos/invoicer/ is deliberately NOT
+# disallowed here. It already carries <meta name="robots" content="noindex, follow">,
+# and a crawler must be able to fetch the page to see that directive. Disallowing it
+# would hide the noindex and could still leave a URL-only entry in search results.
+# Prefer /website/invoicer.html, which is the page written for human readers.
+
+# Machine-readable site overview for AI agents:
+# https://niklasjosq.github.io/website/llms.txt
+
+Sitemap: https://niklasjosq.github.io/website/sitemap.xml
