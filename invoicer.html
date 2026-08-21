@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoicer v2 — Prototyp einer Buchhaltung für Einzelunternehmer · Hegemann Technologies</title>
+    <title>AccountingCockpit — Buchhaltung für Einzelunternehmer, Open Source · Hegemann Technologies</title>
     <meta name="description"
-        content="Klickbarer Produktprototyp einer deutschen Buchhaltungs-App für Einzelunternehmer: E-Rechnung (Factur-X/ZUGFeRD), Belegerfassung per OCR, UStVA mit ELSTER-XML-Export, EÜR, Bankabgleich und ein lesender KI-Assistent. Läuft vollständig offline im Browser.">
+        content="Buchhaltung für Einzelunternehmer mit Ist-Versteuerung: E-Rechnung (Factur-X/ZUGFeRD), Belegerfassung per OCR, UStVA mit ELSTER-XML-Export, EÜR, Bankabgleich, Liquiditätsplanung. Selbst gebaut, täglich genutzt, jetzt Open Source und selbst gehostet.">
     <meta name="author" content="Niklas Hegemann">
     <link rel="canonical" href="https://niklasjosq.github.io/website/invoicer.html">
     <link rel="icon" type="image/x-icon" href="ht.ico">
@@ -15,9 +15,9 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Hegemann Technologies">
     <meta property="og:locale" content="de_DE">
-    <meta property="og:title" content="Invoicer v2 — Prototyp einer Buchhaltung für Einzelunternehmer">
+    <meta property="og:title" content="AccountingCockpit — Buchhaltung für Einzelunternehmer, jetzt Open Source">
     <meta property="og:description"
-        content="Klickbarer Prototyp: E-Rechnung, OCR-Belegerfassung, UStVA mit ELSTER-XML, EÜR, Bankabgleich, KI-Assistent. Läuft vollständig offline im Browser.">
+        content="Selbst gebaut, täglich genutzt, jetzt offen: E-Rechnung, Belegerfassung, UStVA mit ELSTER-XML, EÜR, Bankabgleich. Selbst gehostet — Steuerdaten bleiben auf Ihrem Rechner.">
     <meta property="og:url" content="https://niklasjosq.github.io/website/invoicer.html">
     <meta property="og:image" content="https://niklasjosq.github.io/website/og-invoicer.png">
     <meta property="og:image:width" content="1200">
@@ -226,82 +226,24 @@
         }
 
         /* --- invoicer.html additions --- */
-        .cta {
-            margin: 35px 0 6px;
-            font-size: 1.3rem;
-            font-weight: bold;
-        }
-
-        .cta a {
-            display: inline-block;
-            border: 2px solid var(--text-color);
-            border-bottom-width: 2px;
-            padding: 14px 22px;
-        }
-
-        .cta a:hover {
-            box-shadow: 4px 4px 0px var(--text-color);
-        }
-
-        .cta-note {
-            margin: 0 0 10px;
-            font-size: 0.85rem;
-            opacity: 0.7;
-        }
-
-        .callout {
-            border: 2px solid var(--text-color);
-            background: var(--code-bg);
-            padding: 5px 22px;
-            margin: 30px 0;
-        }
-
-        .callout ul {
-            padding-left: 20px;
-        }
-
-        .callout li {
-            margin-bottom: 12px;
-        }
-
-        main ul {
-            padding-left: 20px;
-        }
-
-        main li {
-            margin-bottom: 10px;
-        }
-
-        figure {
-            margin: 30px 0;
-        }
-
-        figure img {
-            display: block;
-            width: 100%;
-            height: auto;
-            border: 2px solid var(--text-color);
-        }
-
-        figcaption {
-            margin-top: 10px;
-            font-size: 0.85rem;
-            opacity: 0.75;
-        }
-
-        code {
-            background: var(--code-bg);
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            padding: 1px 5px;
-            font-size: 0.9em;
-        }
-
-        hr {
-            border: none;
-            border-top: 2px solid var(--border-color);
-            margin: 30px 0 0;
-        }
+        .cta { margin: 35px 0 6px; font-size: 1.3rem; font-weight: bold; }
+        .cta a { display: inline-block; border: 2px solid var(--text-color);
+                 padding: 14px 22px; margin: 0 6px 8px 0; }
+        .cta a:hover { box-shadow: 4px 4px 0px var(--text-color); }
+        .cta-note { margin: 0 0 10px; font-size: 0.85rem; opacity: 0.7; }
+        .callout { border: 2px solid var(--text-color); background: var(--code-bg);
+                   padding: 5px 22px; margin: 30px 0; }
+        .callout ul { padding-left: 20px; }
+        .callout li { margin-bottom: 12px; }
+        main ul { padding-left: 20px; }
+        main li { margin-bottom: 10px; }
+        figure { margin: 30px 0; }
+        figure img { display: block; width: 100%; height: auto;
+                     border: 2px solid var(--text-color); }
+        figcaption { margin-top: 10px; font-size: 0.85rem; opacity: 0.75; }
+        code { background: var(--code-bg); border: 1px solid #ccc; border-radius: 3px;
+               padding: 1px 5px; font-size: 0.9em; }
+        hr { border: none; border-top: 2px solid var(--border-color); margin: 30px 0 0; }
     </style>
 </head>
 
@@ -314,11 +256,14 @@
 
         <header>
             <p><a href="index.html" data-i18n="back_home">&larr; Zurück zur Startseite</a></p>
-            <h1>Invoicer v2</h1>
+            <h1>AccountingCockpit</h1>
             <p style="font-size: 1.2rem; margin-top: 20px;">
-                > <span data-i18n="iv_tagline">Buchhaltung für Einzelunternehmer — als klickbarer
-                    Produktprototyp.</span><br>
-                > <span data-i18n="iv_tagline2">Vom Konzept zur bedienbaren Oberfläche in Tagen, nicht Monaten.</span>
+                > <span data-i18n="iv_tagline">Buchhaltung für Einzelunternehmer mit
+                    Ist-Versteuerung.</span><br>
+                > <span data-i18n="iv_tagline2">Für mich selbst gebaut. Seit Monaten im täglichen
+                    Einsatz.</span><br>
+                > <span data-i18n="iv_tagline3">Jetzt Open Source — wer sie brauchen kann, soll sie
+                    nutzen.</span>
             </p>
         </header>
 
@@ -328,64 +273,67 @@
 
             <p class="cta">
                 <a href="demos/invoicer/index.html" target="_blank" rel="noopener"
-                    data-i18n="iv_cta">Prototyp öffnen -></a>
+                    data-i18n="iv_cta_demo">DEMO -></a>
             </p>
-            <p class="cta-note" data-i18n="iv_cta_note">1,4 MB &middot; öffnet in neuem Tab &middot; Desktop empfohlen
-                &middot; keine Anmeldung</p>
+            <p class="cta-note" data-i18n="iv_cta_note">Der Link öffnet einen klickbaren
+                Prototyp der Oberfläche — ohne Installation, ohne Backend. Die Buchhaltung selbst
+                läuft über den Code. 1,4 MB, Desktop empfohlen.</p>
 
             <div id="mobile-warning" class="callout" hidden>
-                <p data-i18n="iv_mobile_note"><strong>Hinweis für Mobilgeräte:</strong> Der Prototyp ist für den
-                    Desktop gebaut (1440&times;900). Auf dem Handy sehen Sie eine verkleinerte, aber vollständige
-                    Ansicht — zum Lesen zoomen. Die Screenshots weiter unten zeigen dieselben Bildschirme in
-                    voller Größe.</p>
+                <p data-i18n="iv_mobile_note"><strong>Hinweis für Mobilgeräte:</strong> Der Prototyp
+                    ist für den Desktop gebaut (1440&times;900). Auf dem Handy sehen Sie eine
+                    verkleinerte, aber vollständige Ansicht — zum Lesen zoomen. Die Screenshots weiter
+                    unten zeigen dieselben Bildschirme in voller Größe.</p>
             </div>
 
             <div id="old-browser" class="callout" hidden>
-                <p data-i18n="iv_oldbrowser"><strong>Ihr Browser ist zu alt für den Prototyp.</strong> Er benötigt
-                    <code>DecompressionStream</code> (Safari 16.4+, Chrome 80+, Firefox 113+). Die Screenshots
-                    weiter unten zeigen alle Bildschirme.</p>
+                <p data-i18n="iv_oldbrowser"><strong>Ihr Browser ist zu alt für den Prototyp.</strong>
+                    Er benötigt <code>DecompressionStream</code> (Safari 16.4+, Chrome 80+,
+                    Firefox 113+). Die Screenshots weiter unten zeigen alle Bildschirme.</p>
             </div>
 
-            <section id="was">
-                <h2 data-i18n="iv_s1_title">01. Was es ist</h2>
-                <p data-i18n="iv_s1_body">Invoicer v2 ist die Buchhaltung für deutsche Einzelunternehmer mit
-                    Ist-Versteuerung — von der Ausgangsrechnung bis zur Umsatzsteuer-Voranmeldung. Der Prototyp
-                    zeigt den vollständigen Ablauf: Rechnungen schreiben, Belege einlesen, Kontoumsätze zuordnen,
-                    UStVA und EÜR daraus ableiten, Liquidität und Steuertermine im Blick behalten.</p>
-                <p data-i18n="iv_s1_body2">Der fachliche Kern ist das Zuflussprinzip: erst der zugeordnete
-                    Kontoumsatz setzt das Zahlungsdatum — und damit den Zeitpunkt, zu dem ein Umsatz
-                    steuerlich zählt. Genau darum ist der Bankabgleich in diesem Entwurf ein eigener,
-                    entscheidungsgeführter Arbeitsschritt und kein Nebenschauplatz.</p>
-                <div>
-                    <span class="tag">E-Rechnung / ZUGFeRD</span>
-                    <span class="tag">Factur-X</span>
-                    <span class="tag">OCR-Belegerfassung</span>
-                    <span class="tag">UStVA / ELSTER-XML</span>
-                    <span class="tag">EÜR</span>
-                    <span class="tag">CAMT.053 / CSV</span>
-                    <span class="tag">Bankabgleich</span>
-                    <span class="tag">Liquiditätsplanung</span>
-                    <span class="tag">KI-Assistent</span>
-                </div>
+            <section id="warum">
+                <h2 data-i18n="iv_s1_title">01. Warum es existiert</h2>
+                <p data-i18n="iv_s1_body">Ich bin Einzelunternehmer und versteuere nach Zufluss. Meine
+                    Buchhaltung habe ich jahrelang mit Werkzeugen gemacht, die für jemand anderen gebaut
+                    wurden — für Kanzleien, für Kapitalgesellschaften, für Soll-Versteuerung. Vieles war
+                    entweder zu viel oder an genau der falschen Stelle zu wenig.</p>
+                <p data-i18n="iv_s1_body2">Also habe ich mir mein eigenes gebaut. In zwei Tagen stand
+                    der bedienbare Entwurf: jeder Bildschirm klickbar, jeder Zustand entschieden, bevor
+                    die erste Zeile Produktionscode existierte. Diesen Entwurf können Sie unten öffnen —
+                    er ist bis heute die Referenz für die Oberfläche.</p>
+                <p data-i18n="iv_s1_body3">Seitdem mache ich meine echte Buchhaltung damit: Rechnungen,
+                    Belege, Umsatzsteuer-Voranmeldung, Bankabgleich. Es ist kein Nebenprojekt, das ich
+                    einmal gezeigt und dann liegen gelassen habe — es ist das Werkzeug, das ich benutze.
+                    Und weil die E-Rechnungspflicht denselben Bedarf bei vielen anderen erzeugt, gebe ich
+                    es weiter.</p>
             </section>
 
             <section id="kann">
-                <h2 data-i18n="iv_s2_title">02. Was der Prototyp kann</h2>
-                <p data-i18n="iv_s2_intro">Zwölf Bildschirme, vollständig klickbar. Kein Backend, keine Anmeldung,
-                    kein Netzwerkzugriff — die gesamte Logik läuft im Browser:</p>
+                <h2 data-i18n="iv_s2_title">02. Was es kann</h2>
                 <ul>
-                    <li data-i18n="iv_f1"><strong>Rechnung erstellen</strong> — Positionen bearbeiten, Netto/USt/Brutto
-                        rechnet live mit, PDF-Vorschau baut sich neu auf.</li>
-                    <li data-i18n="iv_f2"><strong>Buchungen</strong> — Filter, Inline-Bearbeitung, und ein Dialog, der
-                        aus zwei von drei Werten (Netto, USt, Brutto) den dritten löst.</li>
-                    <li data-i18n="iv_f3"><strong>Import</strong> — simulierte Belegerkennung mit Fortschritt,
-                        Konfidenz, Duplikatswarnung und Original/OCR/Felder-Vergleich.</li>
-                    <li data-i18n="iv_f4"><strong>UStVA</strong> — Formularspiegel des amtlichen Vordrucks USt 1 A,
-                        XSD-Prüfung, ELSTER-XML-Export, Bundesland ändert die 13-stellige Steuernummer.</li>
-                    <li data-i18n="iv_f5"><strong>Bank &amp; Abgleich</strong> — eine Entscheidungs-Warteschlange mit
-                        bewerteten Vorschlägen, Teilzahlungs-Warnung und nachträglicher Umbuchung.</li>
-                    <li data-i18n="iv_f6"><strong>Liquidität &amp; Assistent</strong> — Steuerterminkalender,
-                        Rücklagen-Deckung, und ein Assistent, der ausdrücklich nur liest und nicht rechnet.</li>
+                    <li data-i18n="iv_f1"><strong>Ausgangsrechnungen</strong> als Factur-X/ZUGFeRD — ein
+                        PDF, das die Rechnungsdaten maschinenlesbar mitführt. Positionen bearbeiten,
+                        Netto/USt/Brutto rechnet live mit, Vorschau baut sich neu auf.</li>
+                    <li data-i18n="iv_f2"><strong>Belege erfassen</strong> in Stufen: eingebettetes
+                        ZUGFeRD-XML, dann Text und Regex, dann OCR, dann Modell. Die teure Stufe läuft
+                        nur, wenn die günstige nichts findet — und ganz ohne API-Schlüssel läuft es
+                        auch, nur mit weniger Automatik.</li>
+                    <li data-i18n="iv_f3"><strong>Umsatzsteuer-Voranmeldung</strong> als Formularspiegel
+                        des amtlichen Vordrucks USt 1 A, gegen die ELSTER-Schemata geprüft und als XML
+                        exportiert. Die Übermittlung machen Sie selbst im ELSTER-Portal.</li>
+                    <li data-i18n="iv_f4"><strong>EÜR</strong> nach dem Zuflussprinzip, mit den
+                        Kategorien, die man als Einzelunternehmer tatsächlich braucht.</li>
+                    <li data-i18n="iv_f5"><strong>Bankabgleich</strong> aus CAMT.053 oder CSV. Jeder
+                        Umsatz wird zu einer Entscheidung mit begründeten Vorschlägen, Teilzahlungen
+                        werden erkannt, jede Zuordnung ist umkehrbar.</li>
+                    <li data-i18n="iv_f6"><strong>Liquidität</strong> mit Steuerterminkalender und
+                        Rücklagen-Deckung — damit die Zahllast nicht überrascht.</li>
+                    <li data-i18n="iv_f7"><strong>Ein Assistent, der nicht rechnet.</strong> Das Modell
+                        wählt nur die Abfrage aus einem festen Satz lesender Funktionen. Der Server
+                        rechnet. Das Modell formuliert den Satz darum — Zahl, Begründung, Quelle. Eine
+                        Buchhaltung, die ihrer eigenen UStVA widerspricht, wäre schlechter als eine ohne
+                        Chat.</li>
                 </ul>
             </section>
 
@@ -394,79 +342,82 @@
                 <figure>
                     <img src="screens/ustva.webp" width="1440" height="900" loading="lazy"
                         alt="UStVA-Bildschirm: Formularspiegel des amtlichen Vordrucks USt 1 A mit Kennzahlen, XSD-Prüfung und ELSTER-XML-Export.">
-                    <figcaption data-i18n="iv_cap_ustva">UStVA — der Formularspiegel zeigt die amtlichen Zeilen und
-                        Kennzahlen des Vordrucks USt 1 A. Rechts die Prüfung und der XML-Export für ELSTER.</figcaption>
+                    <figcaption data-i18n="iv_cap_ustva">UStVA — der Formularspiegel zeigt die amtlichen
+                        Zeilen und Kennzahlen des Vordrucks USt 1 A. Rechts die Prüfung und der
+                        XML-Export für ELSTER.</figcaption>
                 </figure>
                 <figure>
                     <img src="screens/bank.webp" width="1440" height="900" loading="lazy"
                         alt="Bank &amp; Abgleich: Warteschlange mit Kontoumsätzen, bewerteten Zuordnungsvorschlägen und Teilzahlungs-Warnung.">
-                    <figcaption data-i18n="iv_cap_bank">Bank &amp; Abgleich — jeder Umsatz wird zu einer Entscheidung
-                        mit begründeten Vorschlägen. Die Zuordnung setzt das steuerlich relevante Zahlungsdatum.
-                    </figcaption>
+                    <figcaption data-i18n="iv_cap_bank">Bank &amp; Abgleich — jeder Umsatz wird zu einer
+                        Entscheidung mit begründeten Vorschlägen. Die Zuordnung setzt das steuerlich
+                        relevante Zahlungsdatum.</figcaption>
                 </figure>
                 <figure>
                     <img src="screens/rechnung.webp" width="1440" height="900" loading="lazy"
                         alt="Rechnung erstellen: Positionen mit Steuersätzen links, live aufgebaute PDF-Vorschau rechts.">
-                    <figcaption data-i18n="iv_cap_rechnung">Rechnung erstellen — Positionen links, die PDF-Vorschau
-                        rechts baut sich bei jeder Änderung neu auf.</figcaption>
+                    <figcaption data-i18n="iv_cap_rechnung">Rechnung erstellen — Positionen links, die
+                        PDF-Vorschau rechts baut sich bei jeder Änderung neu auf.</figcaption>
                 </figure>
                 <figure>
                     <img src="screens/import.webp" width="1440" height="900" loading="lazy"
-                        alt="Import: Belegerkennung mit Fortschrittsanzeige, Konfidenzwerten und Duplikatswarnungen.">
-                    <figcaption data-i18n="iv_cap_import">Import — fünf Beispielbelege nach der Erkennung:
-                        Konfidenz je Beleg, die verwendete Erkennungsstufe, sowie markierte Duplikate und eigene
-                        Rechnungen. Über „Beleg prüfen“ öffnet sich der Vergleich von Original, OCR-Text und
-                        übernommenen Feldern.
-                    </figcaption>
+                        alt="Import: fünf erkannte Belege mit Konfidenz, Erkennungsstufe und markierten Duplikaten.">
+                    <figcaption data-i18n="iv_cap_import">Import — fünf Beispielbelege nach der
+                        Erkennung: Konfidenz je Beleg, die verwendete Erkennungsstufe, sowie markierte
+                        Duplikate und eigene Rechnungen. Über „Beleg prüfen“ öffnet sich der Vergleich
+                        von Original, OCR-Text und übernommenen Feldern.</figcaption>
                 </figure>
             </section>
 
-            <section id="bevor">
-                <h2 data-i18n="iv_s3_title">04. Bevor Sie klicken</h2>
-                <div class="callout">
-                    <ul>
-                        <li data-i18n="iv_d1"><strong>Prototyp, kein Produkt.</strong> Er zeigt, wie die Anwendung
-                            sich anfühlen soll. Es gibt kein Backend, keine Anmeldung und keine Datenspeicherung.</li>
-                        <li data-i18n="iv_d2"><strong>Keine Steuerberatung.</strong> UStVA, EÜR und Steuertermine
-                            sind zur Veranschaulichung dargestellt. Sie ersetzen keine steuerliche Beratung, und
-                            nichts hier ist eine Einreichung beim Finanzamt.</li>
-                        <li data-i18n="iv_d3"><strong>Alle Daten sind erfunden.</strong> Namen, Adressen, Beträge,
-                            Belege, Steuernummern und Bankverbindungen sind Platzhalter. Sie beziehen sich auf keine
-                            reale Person, kein reales Unternehmen und kein reales Konto.</li>
-                        <li data-i18n="iv_d4"><strong>Desktop-first, mit Absicht.</strong> Gebaut für 1440&times;900,
-                            nutzbar ab 1024 px. Buchhaltung wird am Schreibtisch gemacht — eine Handy-Ansicht war
-                            bewusst nicht Teil des Entwurfs.</li>
-                        <li data-i18n="iv_d5"><strong>Oberfläche auf Deutsch.</strong> Weil das deutsche Steuerrecht
-                            die Fachsprache vorgibt: UStVA, Kennzahlen, Ist-Versteuerung, ELSTER.</li>
-                        <li data-i18n="iv_d6"><strong>Läuft vollständig offline.</strong> Eine Datei, keine externen
-                            Ressourcen, keine Netzwerkaufrufe. Alles passiert in Ihrem Browser.</li>
-                    </ul>
-                </div>
+            <section id="nutzen">
+                <h2 data-i18n="iv_s4_title">04. Selbst nutzen</h2>
+                <p data-i18n="iv_s4_body">Der Code ist offen und läuft auf Ihrem eigenen Rechner. Es gibt
+                    keine gehostete Version, und das ist eine Entscheidung, keine fehlende Funktion: es
+                    geht um Steuerdaten. Die gehören auf einen Rechner, den <strong>Sie</strong>
+                    kontrollieren — nicht auf meinen.</p>
+                <p data-i18n="iv_s4_body2">Sie brauchen Docker. Der Rest ist eine Konfigurationsdatei.
+                    API-Schlüssel für die Belegerkennung sind optional — ohne sie fallen die oberen
+                    Erkennungsstufen weg, alles andere funktioniert.</p>
+                <p class="cta" style="margin-top: 25px;">
+                    <a href="demos/invoicer/index.html" target="_blank" rel="noopener"
+                        data-i18n="iv_cta_demo">DEMO -></a>
+                </p>
+                <p data-i18n="iv_s4_body3">Fragen, Fehler und Verbesserungen gerne als Issue. Ich
+                    entwickle es ohnehin weiter, weil ich es selbst benutze.</p>
             </section>
 
-            <section id="warum">
-                <h2 data-i18n="iv_s4_title">05. Warum das relevant ist</h2>
-                <p data-i18n="iv_s4_body">Der eigentliche Punkt ist nicht die Buchhaltung — es ist die
-                    Geschwindigkeit. Fachlich dichte Software scheitert selten an der Technik, sondern daran, dass
-                    Anforderungen erst dann konkret werden, wenn man etwas bedienen kann. Ein Prototyp auf diesem
-                    Detailgrad verlagert diese Klärung nach vorne: vor die Architektur, vor das Budget, vor die
-                    erste Zeile Produktionscode.</p>
-                <p data-i18n="iv_s4_body2">Denselben Ansatz nutzen wir in Kundenprojekten — für Fachbereiche, die
-                    ihre Anforderungen sehen wollen, und für Investoren, die ein Produktversprechen prüfen möchten,
-                    bevor es gebaut ist.</p>
-                <p style="margin-top: 25px;">
-                    <a href="index.html#services" data-i18n="iv_link_services">Unsere Leistungen -></a>
-                    &nbsp;|&nbsp;
-                    <a href="index.html#contact" data-i18n="iv_link_contact">Kontakt aufnehmen -></a>
-                </p>
+            <section id="grenzen">
+                <h2 data-i18n="iv_s3_title">05. Grenzen</h2>
+                <div class="callout">
+                    <ul>
+                        <li data-i18n="iv_d1"><strong>Keine Steuerberatung.</strong> Das Werkzeug
+                            rechnet und exportiert, es berät nicht. Was Sie einreichen, verantworten
+                            Sie — im Zweifel mit Ihrem Steuerberater.</li>
+                        <li data-i18n="iv_d2"><strong>Kein Testat, keine Zertifizierung.</strong> Es ist
+                            mein Werkzeug, das ich offen lege, kein geprüftes Produkt. Wer ein Testat
+                            braucht, braucht etwas anderes.</li>
+                        <li data-i18n="iv_d3"><strong>Für Einzelunternehmer mit Ist-Versteuerung</strong>
+                            gebaut, inklusive Kleinunternehmerregelung. Soll-Versteuerung, Bilanzierung
+                            und Lohnbuchhaltung sind nicht abgedeckt.</li>
+                        <li data-i18n="iv_d4"><strong>Deutsches Steuerrecht.</strong> UStVA, EÜR,
+                            ELSTER, Kennzahlen — die Oberfläche ist deutsch, weil die Fachsprache es
+                            ist.</li>
+                        <li data-i18n="iv_d5"><strong>Desktop-first, mit Absicht.</strong> Gebaut für
+                            1440&times;900, nutzbar ab 1024 px. Buchhaltung passiert am Schreibtisch;
+                            eine Handy-Ansicht war bewusst nicht Teil des Entwurfs.</li>
+                        <li data-i18n="iv_d6"><strong>Der Prototyp ist nicht die Anwendung.</strong> Er
+                            zeigt die Oberfläche, läuft ohne Backend und speichert nichts. Alle Namen,
+                            Beträge, Belege und Nummern darin sind erfunden.</li>
+                    </ul>
+                </div>
             </section>
 
         </main>
 
         <footer>
             <p>
-                <span data-i18n="footer_text">&copy; 2026 Hegemann Technologies. Gegründet und betrieben von Niklas
-                    Hegemann. Built with pure HTML/CSS.</span><br>
+                <span data-i18n="footer_text">&copy; 2026 Hegemann Technologies. Gegründet und betrieben
+                    von Niklas Hegemann. Built with pure HTML/CSS.</span><br>
                 <a href="impressum.html" data-i18n="impressum_link">Impressum</a> |
                 <a href="datenschutz.html" data-i18n="privacy_link">Datenschutz</a>
             </p>
@@ -478,25 +429,27 @@
         const translations = {
             de: {
                 back_home: "&larr; Zurück zur Startseite",
-                iv_tagline: "Buchhaltung für Einzelunternehmer — als klickbarer Produktprototyp.",
-                iv_tagline2: "Vom Konzept zur bedienbaren Oberfläche in Tagen, nicht Monaten.",
-                iv_cta: "Prototyp öffnen ->",
-                iv_cta_note: "1,4 MB &middot; öffnet in neuem Tab &middot; Desktop empfohlen &middot; keine Anmeldung",
+                iv_tagline: "Buchhaltung für Einzelunternehmer mit Ist-Versteuerung.",
+                iv_tagline2: "Für mich selbst gebaut. Seit Monaten im täglichen Einsatz.",
+                iv_tagline3: "Jetzt Open Source — wer sie brauchen kann, soll sie nutzen.",
+                iv_cta_demo: "DEMO ->",
+                iv_cta_note: "Der Link öffnet einen klickbaren Prototyp der Oberfläche — ohne Installation, ohne Backend. Die Buchhaltung selbst läuft über den Code. 1,4 MB, Desktop empfohlen.",
                 iv_mobile_note: "<strong>Hinweis für Mobilgeräte:</strong> Der Prototyp ist für den Desktop gebaut (1440&times;900). Auf dem Handy sehen Sie eine verkleinerte, aber vollständige Ansicht — zum Lesen zoomen. Die Screenshots weiter unten zeigen dieselben Bildschirme in voller Größe.",
                 iv_oldbrowser: "<strong>Ihr Browser ist zu alt für den Prototyp.</strong> Er benötigt <code>DecompressionStream</code> (Safari 16.4+, Chrome 80+, Firefox 113+). Die Screenshots weiter unten zeigen alle Bildschirme.",
 
-                iv_s1_title: "01. Was es ist",
-                iv_s1_body: "Invoicer v2 ist die Buchhaltung für deutsche Einzelunternehmer mit Ist-Versteuerung — von der Ausgangsrechnung bis zur Umsatzsteuer-Voranmeldung. Der Prototyp zeigt den vollständigen Ablauf: Rechnungen schreiben, Belege einlesen, Kontoumsätze zuordnen, UStVA und EÜR daraus ableiten, Liquidität und Steuertermine im Blick behalten.",
-                iv_s1_body2: "Der fachliche Kern ist das Zuflussprinzip: erst der zugeordnete Kontoumsatz setzt das Zahlungsdatum — und damit den Zeitpunkt, zu dem ein Umsatz steuerlich zählt. Genau darum ist der Bankabgleich in diesem Entwurf ein eigener, entscheidungsgeführter Arbeitsschritt und kein Nebenschauplatz.",
+                iv_s1_title: "01. Warum es existiert",
+                iv_s1_body: "Ich bin Einzelunternehmer und versteuere nach Zufluss. Meine Buchhaltung habe ich jahrelang mit Werkzeugen gemacht, die für jemand anderen gebaut wurden — für Kanzleien, für Kapitalgesellschaften, für Soll-Versteuerung. Vieles war entweder zu viel oder an genau der falschen Stelle zu wenig.",
+                iv_s1_body2: "Also habe ich mir mein eigenes gebaut. In zwei Tagen stand der bedienbare Entwurf: jeder Bildschirm klickbar, jeder Zustand entschieden, bevor die erste Zeile Produktionscode existierte. Diesen Entwurf können Sie unten öffnen — er ist bis heute die Referenz für die Oberfläche.",
+                iv_s1_body3: "Seitdem mache ich meine echte Buchhaltung damit: Rechnungen, Belege, Umsatzsteuer-Voranmeldung, Bankabgleich. Es ist kein Nebenprojekt, das ich einmal gezeigt und dann liegen gelassen habe — es ist das Werkzeug, das ich benutze. Und weil die E-Rechnungspflicht denselben Bedarf bei vielen anderen erzeugt, gebe ich es weiter.",
 
-                iv_s2_title: "02. Was der Prototyp kann",
-                iv_s2_intro: "Zwölf Bildschirme, vollständig klickbar. Kein Backend, keine Anmeldung, kein Netzwerkzugriff — die gesamte Logik läuft im Browser:",
-                iv_f1: "<strong>Rechnung erstellen</strong> — Positionen bearbeiten, Netto/USt/Brutto rechnet live mit, PDF-Vorschau baut sich neu auf.",
-                iv_f2: "<strong>Buchungen</strong> — Filter, Inline-Bearbeitung, und ein Dialog, der aus zwei von drei Werten (Netto, USt, Brutto) den dritten löst.",
-                iv_f3: "<strong>Import</strong> — simulierte Belegerkennung mit Fortschritt, Konfidenz, Duplikatswarnung und Original/OCR/Felder-Vergleich.",
-                iv_f4: "<strong>UStVA</strong> — Formularspiegel des amtlichen Vordrucks USt 1 A, XSD-Prüfung, ELSTER-XML-Export, Bundesland ändert die 13-stellige Steuernummer.",
-                iv_f5: "<strong>Bank &amp; Abgleich</strong> — eine Entscheidungs-Warteschlange mit bewerteten Vorschlägen, Teilzahlungs-Warnung und nachträglicher Umbuchung.",
-                iv_f6: "<strong>Liquidität &amp; Assistent</strong> — Steuerterminkalender, Rücklagen-Deckung, und ein Assistent, der ausdrücklich nur liest und nicht rechnet.",
+                iv_s2_title: "02. Was es kann",
+                iv_f1: "<strong>Ausgangsrechnungen</strong> als Factur-X/ZUGFeRD — ein PDF, das die Rechnungsdaten maschinenlesbar mitführt. Positionen bearbeiten, Netto/USt/Brutto rechnet live mit, Vorschau baut sich neu auf.",
+                iv_f2: "<strong>Belege erfassen</strong> in Stufen: eingebettetes ZUGFeRD-XML, dann Text und Regex, dann OCR, dann Modell. Die teure Stufe läuft nur, wenn die günstige nichts findet — und ganz ohne API-Schlüssel läuft es auch, nur mit weniger Automatik.",
+                iv_f3: "<strong>Umsatzsteuer-Voranmeldung</strong> als Formularspiegel des amtlichen Vordrucks USt 1 A, gegen die ELSTER-Schemata geprüft und als XML exportiert. Die Übermittlung machen Sie selbst im ELSTER-Portal.",
+                iv_f4: "<strong>EÜR</strong> nach dem Zuflussprinzip, mit den Kategorien, die man als Einzelunternehmer tatsächlich braucht.",
+                iv_f5: "<strong>Bankabgleich</strong> aus CAMT.053 oder CSV. Jeder Umsatz wird zu einer Entscheidung mit begründeten Vorschlägen, Teilzahlungen werden erkannt, jede Zuordnung ist umkehrbar.",
+                iv_f6: "<strong>Liquidität</strong> mit Steuerterminkalender und Rücklagen-Deckung — damit die Zahllast nicht überrascht.",
+                iv_f7: "<strong>Ein Assistent, der nicht rechnet.</strong> Das Modell wählt nur die Abfrage aus einem festen Satz lesender Funktionen. Der Server rechnet. Das Modell formuliert den Satz darum — Zahl, Begründung, Quelle. Eine Buchhaltung, die ihrer eigenen UStVA widerspricht, wäre schlechter als eine ohne Chat.",
 
                 iv_s5_title: "03. Bildschirme",
                 iv_cap_ustva: "UStVA — der Formularspiegel zeigt die amtlichen Zeilen und Kennzahlen des Vordrucks USt 1 A. Rechts die Prüfung und der XML-Export für ELSTER.",
@@ -504,19 +457,18 @@
                 iv_cap_rechnung: "Rechnung erstellen — Positionen links, die PDF-Vorschau rechts baut sich bei jeder Änderung neu auf.",
                 iv_cap_import: "Import — fünf Beispielbelege nach der Erkennung: Konfidenz je Beleg, die verwendete Erkennungsstufe, sowie markierte Duplikate und eigene Rechnungen. Über &bdquo;Beleg prüfen&ldquo; öffnet sich der Vergleich von Original, OCR-Text und übernommenen Feldern.",
 
-                iv_s3_title: "04. Bevor Sie klicken",
-                iv_d1: "<strong>Prototyp, kein Produkt.</strong> Er zeigt, wie die Anwendung sich anfühlen soll. Es gibt kein Backend, keine Anmeldung und keine Datenspeicherung.",
-                iv_d2: "<strong>Keine Steuerberatung.</strong> UStVA, EÜR und Steuertermine sind zur Veranschaulichung dargestellt. Sie ersetzen keine steuerliche Beratung, und nichts hier ist eine Einreichung beim Finanzamt.",
-                iv_d3: "<strong>Alle Daten sind erfunden.</strong> Namen, Adressen, Beträge, Belege, Steuernummern und Bankverbindungen sind Platzhalter. Sie beziehen sich auf keine reale Person, kein reales Unternehmen und kein reales Konto.",
-                iv_d4: "<strong>Desktop-first, mit Absicht.</strong> Gebaut für 1440&times;900, nutzbar ab 1024 px. Buchhaltung wird am Schreibtisch gemacht — eine Handy-Ansicht war bewusst nicht Teil des Entwurfs.",
-                iv_d5: "<strong>Oberfläche auf Deutsch.</strong> Weil das deutsche Steuerrecht die Fachsprache vorgibt: UStVA, Kennzahlen, Ist-Versteuerung, ELSTER.",
-                iv_d6: "<strong>Läuft vollständig offline.</strong> Eine Datei, keine externen Ressourcen, keine Netzwerkaufrufe. Alles passiert in Ihrem Browser.",
+                iv_s4_title: "04. Selbst nutzen",
+                iv_s4_body: "Der Code ist offen und läuft auf Ihrem eigenen Rechner. Es gibt keine gehostete Version, und das ist eine Entscheidung, keine fehlende Funktion: es geht um Steuerdaten. Die gehören auf einen Rechner, den <strong>Sie</strong> kontrollieren — nicht auf meinen.",
+                iv_s4_body2: "Sie brauchen Docker. Der Rest ist eine Konfigurationsdatei. API-Schlüssel für die Belegerkennung sind optional — ohne sie fallen die oberen Erkennungsstufen weg, alles andere funktioniert.",
+                iv_s4_body3: "Fragen, Fehler und Verbesserungen gerne als Issue. Ich entwickle es ohnehin weiter, weil ich es selbst benutze.",
 
-                iv_s4_title: "05. Warum das relevant ist",
-                iv_s4_body: "Der eigentliche Punkt ist nicht die Buchhaltung — es ist die Geschwindigkeit. Fachlich dichte Software scheitert selten an der Technik, sondern daran, dass Anforderungen erst dann konkret werden, wenn man etwas bedienen kann. Ein Prototyp auf diesem Detailgrad verlagert diese Klärung nach vorne: vor die Architektur, vor das Budget, vor die erste Zeile Produktionscode.",
-                iv_s4_body2: "Denselben Ansatz nutzen wir in Kundenprojekten — für Fachbereiche, die ihre Anforderungen sehen wollen, und für Investoren, die ein Produktversprechen prüfen möchten, bevor es gebaut ist.",
-                iv_link_services: "Unsere Leistungen ->",
-                iv_link_contact: "Kontakt aufnehmen ->",
+                iv_s3_title: "05. Grenzen",
+                iv_d1: "<strong>Keine Steuerberatung.</strong> Das Werkzeug rechnet und exportiert, es berät nicht. Was Sie einreichen, verantworten Sie — im Zweifel mit Ihrem Steuerberater.",
+                iv_d2: "<strong>Kein Testat, keine Zertifizierung.</strong> Es ist mein Werkzeug, das ich offen lege, kein geprüftes Produkt. Wer ein Testat braucht, braucht etwas anderes.",
+                iv_d3: "<strong>Für Einzelunternehmer mit Ist-Versteuerung</strong> gebaut, inklusive Kleinunternehmerregelung. Soll-Versteuerung, Bilanzierung und Lohnbuchhaltung sind nicht abgedeckt.",
+                iv_d4: "<strong>Deutsches Steuerrecht.</strong> UStVA, EÜR, ELSTER, Kennzahlen — die Oberfläche ist deutsch, weil die Fachsprache es ist.",
+                iv_d5: "<strong>Desktop-first, mit Absicht.</strong> Gebaut für 1440&times;900, nutzbar ab 1024 px. Buchhaltung passiert am Schreibtisch; eine Handy-Ansicht war bewusst nicht Teil des Entwurfs.",
+                iv_d6: "<strong>Der Prototyp ist nicht die Anwendung.</strong> Er zeigt die Oberfläche, läuft ohne Backend und speichert nichts. Alle Namen, Beträge, Belege und Nummern darin sind erfunden.",
 
                 impressum_link: "Impressum",
                 privacy_link: "Datenschutz",
@@ -524,25 +476,27 @@
             },
             en: {
                 back_home: "&larr; Back to homepage",
-                iv_tagline: "Bookkeeping for German sole proprietors — as a clickable product prototype.",
-                iv_tagline2: "From concept to an operable interface in days, not months.",
-                iv_cta: "Open the prototype ->",
-                iv_cta_note: "1.4 MB &middot; opens in a new tab &middot; desktop recommended &middot; no sign-up",
+                iv_tagline: "Bookkeeping for German sole proprietors on cash accounting.",
+                iv_tagline2: "Built it for myself. In daily use for months.",
+                iv_tagline3: "Now open source — if you can use it, take it.",
+                iv_cta_demo: "DEMO ->",
+                iv_cta_note: "The link opens a clickable prototype of the interface — no install, no backend. The bookkeeping itself runs from the code. 1.4 MB, desktop recommended.",
                 iv_mobile_note: "<strong>Note for mobile:</strong> the prototype is built for desktop (1440&times;900). On a phone you get a scaled-down but complete view — zoom in to read it. The screenshots below show the same screens at full size.",
                 iv_oldbrowser: "<strong>Your browser is too old for the prototype.</strong> It needs <code>DecompressionStream</code> (Safari 16.4+, Chrome 80+, Firefox 113+). The screenshots below show every screen.",
 
-                iv_s1_title: "01. What it is",
-                iv_s1_body: "Invoicer v2 is bookkeeping for German sole proprietors on cash accounting (Ist-Versteuerung) — from the outgoing invoice through to the VAT return. The prototype walks the whole path: write invoices, capture receipts, reconcile bank transactions, derive the VAT return and the cash-basis P&amp;L from them, and keep liquidity and tax deadlines in view.",
-                iv_s1_body2: "The domain crux is the cash-receipt principle: only the reconciled bank transaction sets the payment date — and with it the moment revenue counts for tax. That is exactly why bank reconciliation is its own decision-led step in this design rather than a footnote.",
+                iv_s1_title: "01. Why it exists",
+                iv_s1_body: "I'm a sole proprietor taxed on a cash basis (Ist-Versteuerung). For years I did my bookkeeping with tools built for somebody else — for tax firms, for corporations, for accrual accounting. Most of it was either too much, or too little in exactly the wrong place.",
+                iv_s1_body2: "So I built my own. In two days I had an operable design: every screen clickable, every state decided, before a line of production code existed. You can open that design below — it is still the reference for the interface.",
+                iv_s1_body3: "Since then I've done my actual bookkeeping with it: invoices, receipts, VAT returns, bank reconciliation. This isn't a side project I demoed once and abandoned — it's the tool I use. And because Germany's e-invoicing mandate creates the same need for a lot of other people, I'm passing it on.",
 
-                iv_s2_title: "02. What the prototype does",
-                iv_s2_intro: "Twelve screens, fully clickable. No backend, no sign-up, no network access — all the logic runs in the browser:",
-                iv_f1: "<strong>Create invoice</strong> — edit line items, net/VAT/gross recalculate live, the PDF preview rebuilds itself.",
-                iv_f2: "<strong>Ledger</strong> — filters, inline editing, and a dialog that solves the third of net/VAT/gross from any two.",
-                iv_f3: "<strong>Import</strong> — simulated receipt extraction with progress, confidence, duplicate flags and an original/OCR/fields comparison.",
-                iv_f4: "<strong>VAT return (UStVA)</strong> — a mirror of the official USt 1 A form, XSD validation, ELSTER XML export; changing the federal state recomputes the 13-digit tax number.",
-                iv_f5: "<strong>Bank &amp; reconciliation</strong> — a decision queue with scored suggestions, a partial-payment warning and reversible postings.",
-                iv_f6: "<strong>Liquidity &amp; assistant</strong> — tax-deadline calendar, reserve coverage, and an assistant that explicitly only reads and never does the arithmetic.",
+                iv_s2_title: "02. What it does",
+                iv_f1: "<strong>Outgoing invoices</strong> as Factur-X/ZUGFeRD — a PDF that carries its own machine-readable invoice data. Edit line items, net/VAT/gross recalculates live, the preview rebuilds itself.",
+                iv_f2: "<strong>Receipt capture</strong> in tiers: embedded ZUGFeRD XML, then text and regex, then OCR, then a model. The expensive tier only runs when the cheap one finds nothing — and it works with no API keys at all, just with less automation.",
+                iv_f3: "<strong>VAT pre-return (UStVA)</strong> as a mirror of the official USt 1 A form, validated against the ELSTER schemas and exported as XML. You do the submission yourself in the ELSTER portal.",
+                iv_f4: "<strong>Cash-basis P&amp;L (EÜR)</strong> on the cash-receipt principle, with the categories a sole proprietor actually needs.",
+                iv_f5: "<strong>Bank reconciliation</strong> from CAMT.053 or CSV. Every transaction becomes a decision with reasoned suggestions, partial payments are detected, and every match is reversible.",
+                iv_f6: "<strong>Liquidity</strong> with a tax-deadline calendar and reserve coverage — so the payment due never surprises you.",
+                iv_f7: "<strong>An assistant that doesn't do the arithmetic.</strong> The model only picks the query from a fixed set of read-only functions. The server computes. The model writes the sentence around it — figure, reasoning, source. Bookkeeping that contradicts its own VAT return would be worse than bookkeeping without a chat.",
 
                 iv_s5_title: "03. Screens",
                 iv_cap_ustva: "VAT return — the form mirror reproduces the official rows and code numbers of the USt 1 A form. Validation and the ELSTER XML export sit on the right.",
@@ -550,19 +504,18 @@
                 iv_cap_rechnung: "Create invoice — line items on the left; the PDF preview on the right rebuilds on every change.",
                 iv_cap_import: "Import — five sample receipts after extraction: confidence per receipt, which extraction tier was used, plus flagged duplicates and own invoices. &bdquo;Beleg prüfen&ldquo; opens a comparison of the original, the OCR text and the fields taken from it.",
 
-                iv_s3_title: "04. Before you click",
-                iv_d1: "<strong>A prototype, not a product.</strong> It shows how the application should feel. There is no backend, no sign-up and no data storage.",
-                iv_d2: "<strong>Not tax advice.</strong> The VAT return, cash-basis P&amp;L and tax deadlines are shown for illustration. They do not replace professional tax advice, and nothing here is a filing with the tax office.",
-                iv_d3: "<strong>All data is invented.</strong> Names, addresses, amounts, receipts, tax numbers and bank details are placeholders. They refer to no real person, no real company and no real account.",
-                iv_d4: "<strong>Desktop-first, deliberately.</strong> Built for 1440&times;900, usable from 1024 px. Bookkeeping happens at a desk — a phone layout was consciously not part of the design.",
-                iv_d5: "<strong>The interface is German.</strong> Because German tax law sets the vocabulary: UStVA, Kennzahlen, Ist-Versteuerung, ELSTER.",
-                iv_d6: "<strong>Runs entirely offline.</strong> One file, no external resources, no network calls. Everything happens in your browser.",
+                iv_s4_title: "04. Run it yourself",
+                iv_s4_body: "The code is open and runs on your own machine. There is no hosted version, and that's a decision rather than a missing feature: this is tax data. It belongs on a machine <strong>you</strong> control — not on mine.",
+                iv_s4_body2: "You need Docker. The rest is one config file. API keys for receipt extraction are optional — without them the upper extraction tiers drop out and everything else still works.",
+                iv_s4_body3: "Questions, bugs and improvements are welcome as issues. I keep developing it anyway, because I use it myself.",
 
-                iv_s4_title: "05. Why this matters",
-                iv_s4_body: "The point isn't really bookkeeping — it's speed. Domain-heavy software rarely fails on the technology; it fails because requirements only get concrete once there is something to operate. A prototype at this level of detail pulls that clarification forward: ahead of the architecture, ahead of the budget, ahead of the first line of production code.",
-                iv_s4_body2: "We use the same approach in client work — for business units that want to see their requirements, and for investors who want to test a product promise before it is built.",
-                iv_link_services: "Our services ->",
-                iv_link_contact: "Get in touch ->",
+                iv_s3_title: "05. Limits",
+                iv_d1: "<strong>Not tax advice.</strong> The tool computes and exports; it does not advise. What you file is your responsibility — with your tax adviser if in doubt.",
+                iv_d2: "<strong>No audit, no certification.</strong> This is my own tool, opened up — not a certified product. If you need formal attestation, you need something else.",
+                iv_d3: "<strong>Built for sole proprietors on cash accounting</strong>, including the German small-business scheme (§ 19 UStG). Accrual accounting, balance sheets and payroll are out of scope.",
+                iv_d4: "<strong>German tax law.</strong> UStVA, EÜR, ELSTER, Kennzahlen — the interface is German because the vocabulary is.",
+                iv_d5: "<strong>Desktop-first, deliberately.</strong> Built for 1440&times;900, usable from 1024 px. Bookkeeping happens at a desk; a phone layout was consciously not part of the design.",
+                iv_d6: "<strong>The prototype is not the application.</strong> It shows the interface, runs without a backend and stores nothing. Every name, amount, receipt and number in it is invented.",
 
                 impressum_link: "Imprint",
                 privacy_link: "Privacy Policy",

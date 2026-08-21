@@ -34,8 +34,11 @@ This is a static website built with pure HTML, CSS, and JavaScript.
 *   `index.html`: Main landing page with multi-language support (DE/EN).
 *   `impressum.html`: Legal Notice (Imprint).
 *   `datenschutz.html`: Privacy Policy.
-*   `invoicer.html`: Showcase page for the Invoicer v2 product prototype (DE/EN).
-*   `demos/invoicer/`: The Invoicer v2 prototype itself — a single self-contained,
+*   `invoicer.html`: Page for AccountingCockpit — open-source bookkeeping for German
+    sole proprietors, built for my own use (DE/EN). Links to the interface prototype below;
+    the source repository is not linked from the site and is shared on request. The filename
+    predates the rename from "Invoicer" and is kept so the published URL does not break.
+*   `demos/invoicer/`: The AccountingCockpit prototype itself — a single self-contained,
     fully offline HTML file. Generated: edit the source in the AccountingAI repo
     (`docs/design_handoff/`) and re-run `rebundle.py` then `publish.py`. Do not edit by hand.
 *   `screens/`: Screenshots used by `invoicer.html`.

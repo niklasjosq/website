@@ -328,24 +328,6 @@
                 <h2 data-i18n="projects_title">03. Selected Work</h2>
                 <div class="project-grid">
                     <article class="project-card">
-                        <h3 data-i18n="project7_title">Invoicer v2 — Buchhaltung für Einzelunternehmer</h3>
-                        <p data-i18n="project7_desc">Klickbarer Produktprototyp einer deutschen Buchhaltungs-App:
-                            E-Rechnung (Factur-X/ZUGFeRD), Belegerfassung per OCR, UStVA mit ELSTER-XML-Export, EÜR,
-                            Bankabgleich und ein lesender KI-Assistent. Vom Konzept zum bedienbaren Prototyp in Tagen
-                            statt Monaten.</p>
-                        <div>
-                            <span class="tag">Product Design</span>
-                            <span class="tag">React</span>
-                            <span class="tag">AI-assisted Prototyping</span>
-                            <span class="tag">E-Rechnung / ZUGFeRD</span>
-                            <span class="tag">UStVA / ELSTER</span>
-                        </div>
-                        <p style="margin-top: 15px;">
-                            <a href="invoicer.html" data-i18n="live_demo">Live Demo -></a>
-                        </p>
-                    </article>
-
-                    <article class="project-card">
                         <h3 data-i18n="project5_title">AI Target Screening für PE-Investoren</h3>
                         <p data-i18n="project5_desc">KI-Agenten, die potenzielle Akquisitionsziele über öffentliche Filings, News und strukturierte Datenquellen scannen, bewerten und screenen. Reduziert manuellen Sourcing-Aufwand und deckt nicht-offensichtliche Matches auf.</p>
                         <div>
@@ -439,8 +421,55 @@
                 </div>
             </section>
 
+            <section id="tools">
+                <h2 data-i18n="tools_title">04. Tools</h2>
+                <p data-i18n="tools_intro">Werkzeuge, die wir für den eigenen Bedarf gebaut haben. Beide sind
+                    Open Source und laufen selbst gehostet oder vollständig lokal im Browser — sie arbeiten mit
+                    Daten, die das eigene Gerät nicht verlassen sollten.</p>
+                <div class="project-grid" style="margin-top: 20px;">
+                    <article class="project-card">
+                        <h3 data-i18n="tool_redline_title">redline — Dokumentenvergleich im Browser</h3>
+                        <p data-i18n="tool_redline_desc">Vergleicht zwei Versionen eines Dokuments Wort für Wort
+                            — PDF, Word (.docx), OpenDocument (.odt), Text und Markdown, in jeder Kombination.
+                            Der Vergleich läuft vollständig im Browser-Tab: kein Upload, kein Server, keine
+                            Netzwerkanfrage. Gebaut für Verträge, die man nirgendwohin schicken darf.</p>
+                        <div>
+                            <span class="tag">Open Source</span>
+                            <span class="tag">Apache-2.0</span>
+                            <span class="tag" data-i18n="tag_nonetwork">Kein Upload, kein Server</span>
+                            <span class="tag">PDF / DOCX / ODT</span>
+                            <span class="tag" data-i18n="tag_worddiff">Wortgenauer Diff</span>
+                        </div>
+                        <p style="margin-top: 15px;">
+                            <a href="https://niklasjosq.github.io/opendiff/" target="_blank" rel="noopener"
+                                data-i18n="open_tool">Tool öffnen -></a><br>
+                            <a href="https://github.com/niklasjosq/opendiff" target="_blank" rel="noopener"
+                                data-i18n="github_repo">GitHub Repo -></a>
+                        </p>
+                    </article>
+
+                    <article class="project-card">
+                        <h3 data-i18n="tool_ac_title">AccountingCockpit — Buchhaltung für Einzelunternehmer</h3>
+                        <p data-i18n="tool_ac_desc">Buchhaltung für Einzelunternehmer mit Ist-Versteuerung:
+                            E-Rechnung (Factur-X/ZUGFeRD), Belegerfassung per OCR, UStVA mit ELSTER-XML-Export, EÜR,
+                            Bankabgleich und ein lesender KI-Assistent. Für den eigenen Bedarf gebaut, täglich
+                            genutzt, jetzt Open Source und selbst gehostet.</p>
+                        <div>
+                            <span class="tag">Open Source</span>
+                            <span class="tag">Python / FastAPI</span>
+                            <span class="tag">React</span>
+                            <span class="tag">E-Rechnung / ZUGFeRD</span>
+                            <span class="tag">UStVA / ELSTER</span>
+                        </div>
+                        <p style="margin-top: 15px;">
+                            <a href="invoicer.html" data-i18n="live_demo">Live Demo -></a>
+                        </p>
+                    </article>
+                </div>
+            </section>
+
             <section id="blog">
-                <h2 data-i18n="blog_title">04. Insights</h2>
+                <h2 data-i18n="blog_title">05. Insights</h2>
                 <ul style="list-style: none; padding: 0;">
                     <li style="margin-bottom: 20px;">
                         <strong>The Next Wave of Financial Automation: Unlocking Structured Data</strong><br>
@@ -452,11 +481,25 @@
             </section>
 
             <section id="publications">
-                <h2 data-i18n="publications_title">05. Forschung & Patente</h2>
+                <h2 data-i18n="publications_title">06. Forschung & Patente</h2>
 
                 <h3 data-i18n="papers_subtitle" style="margin-top: 30px; margin-bottom: 20px;">// Publikationen
                     (Auswahl)</h3>
                 <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 20px;">
+                        <strong>Warum 200 Qubits die Finanzwelt verändern werden</strong><br>
+                        <span style="font-size: 0.9em;">N. Hegemann</span><br>
+                        <span style="font-style: italic;">Der Bank Blog, 05/2026</span><br>
+                        <a href="https://www.der-bank-blog.de/warum-200-qubits-die-finanzwelt-veraendern-werden/technologie/37729429/"
+                            target="_blank">[Link]</a>
+                    </li>
+                    <li style="margin-bottom: 20px;">
+                        <strong>Quantencomputing: Der Turboschalter für die Finanzbranche</strong><br>
+                        <span style="font-size: 0.9em;">N. Hegemann</span><br>
+                        <span style="font-style: italic;">Der Bank Blog, 04/2026</span><br>
+                        <a href="https://www.der-bank-blog.de/quantencomputing-der-turboschalter-finanzbranche/technologie/37729428/"
+                            target="_blank">[Link]</a>
+                    </li>
                     <li style="margin-bottom: 20px;">
                         <strong>Pauli Cloners for Pauli Channels</strong><br>
                         <span style="font-size: 0.9em;">S.F. Kerstan, M. Gallezot, T. Decker, M. Braun, N.
@@ -546,7 +589,7 @@
             </section>
 
             <section id="references">
-                <h2 data-i18n="references_title">06. Referenzen</h2>
+                <h2 data-i18n="references_title">07. Referenzen</h2>
 
                 <p data-i18n="references_intro" style="margin-top: 20px;">Ausgewähltes Testimonial aus der Quanten-Beratungsarbeit, die das technische Fundament von Hegemann Technologies gelegt hat:</p>
 
@@ -570,7 +613,7 @@
             </section>
 
             <section id="contact">
-                <h2 data-i18n="contact_title">07. Kontakt</h2>
+                <h2 data-i18n="contact_title">08. Kontakt</h2>
                 <p><span data-i18n="availability">Hegemann Technologies nimmt aktuell neue Engagements ab <strong>Mai
                             2026</strong> an.</span></p>
 
@@ -606,6 +649,7 @@
                 contact_link: "Kontakt aufnehmen",
                 work_link: "Unsere Arbeit",
                 live_demo: "Live Demo ->",
+                open_tool: "Tool öffnen ->",
                 github_repo: "GitHub Repo ->",
                 confidential: "- Confidential -",
                 read_article: "[Artikel lesen]",
@@ -666,20 +710,27 @@
                 project5_desc: "KI-Agenten, die potenzielle Akquisitionsziele über öffentliche Filings, News und strukturierte Datenquellen scannen, bewerten und screenen. Reduziert manuellen Sourcing-Aufwand und deckt nicht-offensichtliche Matches auf.",
                 project6_title: "Construction Project Discovery Dashboard",
                 project6_desc: "KI-gestütztes Dashboard, das Bauprojekt-Opportunitäten aus öffentlichen Ausschreibungen, Genehmigungen und Branchendaten aggregiert und sichtbar macht. Entwickelt für B2B-Vertriebs- und Market-Intelligence-Teams.",
-                project7_title: "Invoicer v2 — Buchhaltung für Einzelunternehmer",
-                project7_desc: "Klickbarer Produktprototyp einer deutschen Buchhaltungs-App: E-Rechnung (Factur-X/ZUGFeRD), Belegerfassung per OCR, UStVA mit ELSTER-XML-Export, EÜR, Bankabgleich und ein lesender KI-Assistent. Vom Konzept zum bedienbaren Prototyp in Tagen statt Monaten.",
 
-                blog_title: "04. Insights",
+                tools_title: "04. Tools",
+                tools_intro: "Werkzeuge, die wir für den eigenen Bedarf gebaut haben. Beide sind Open Source und laufen selbst gehostet oder vollständig lokal im Browser — sie arbeiten mit Daten, die das eigene Gerät nicht verlassen sollten.",
+                tool_redline_title: "redline — Dokumentenvergleich im Browser",
+                tool_redline_desc: "Vergleicht zwei Versionen eines Dokuments Wort für Wort — PDF, Word (.docx), OpenDocument (.odt), Text und Markdown, in jeder Kombination. Der Vergleich läuft vollständig im Browser-Tab: kein Upload, kein Server, keine Netzwerkanfrage. Gebaut für Verträge, die man nirgendwohin schicken darf.",
+                tool_ac_title: "AccountingCockpit — Buchhaltung für Einzelunternehmer",
+                tool_ac_desc: "Buchhaltung für Einzelunternehmer mit Ist-Versteuerung: E-Rechnung (Factur-X/ZUGFeRD), Belegerfassung per OCR, UStVA mit ELSTER-XML-Export, EÜR, Bankabgleich und ein lesender KI-Assistent. Für den eigenen Bedarf gebaut, täglich genutzt, jetzt Open Source und selbst gehostet.",
+                tag_nonetwork: "Kein Upload, kein Server",
+                tag_worddiff: "Wortgenauer Diff",
 
-                publications_title: "05. Forschung & Patente",
+                blog_title: "05. Insights",
+
+                publications_title: "06. Forschung & Patente",
                 research_intro: "Das AI-Advisory von Hegemann Technologies basiert auf jahrelanger peer-reviewter Forschung und erteilten Patenten in Quantencomputing und Quantenkommunikation. Diese Langzeitperspektive bringen wir in jede Engagement-Phase — damit der KI-Build von heute nicht das Legacy-System von morgen wird.",
                 papers_subtitle: "// Publikationen (Auswahl)",
                 patents_subtitle: "// Patente (Pending/Granted)",
 
-                references_title: "06. Referenzen",
+                references_title: "07. Referenzen",
                 references_intro: "Ausgewähltes Testimonial aus der Quanten-Beratungsarbeit, die das technische Fundament von Hegemann Technologies gelegt hat:",
 
-                contact_title: "07. Kontakt",
+                contact_title: "08. Kontakt",
                 availability: "Hegemann Technologies nimmt aktuell neue Engagements ab <strong>Mai 2026</strong> an."
             },
             en: {
@@ -691,6 +742,7 @@
                 contact_link: "Get in touch",
                 work_link: "Our work",
                 live_demo: "Live Demo ->",
+                open_tool: "Open tool ->",
                 github_repo: "GitHub Repo ->",
                 confidential: "- Confidential -",
                 read_article: "[Read article]",
@@ -751,20 +803,27 @@
                 project5_desc: "AI agents that scan, score, and screen potential acquisition targets across public filings, news, and structured data sources. Cuts manual sourcing time and surfaces non-obvious matches.",
                 project6_title: "Construction Project Discovery Dashboard",
                 project6_desc: "AI-powered dashboard that aggregates and surfaces construction project opportunities from public tenders, permits, and industry data. Built for B2B sales and market intelligence teams.",
-                project7_title: "Invoicer v2 — Bookkeeping for German Sole Proprietors",
-                project7_desc: "Clickable product prototype of a German bookkeeping app: e-invoicing (Factur-X/ZUGFeRD), OCR receipt capture, VAT return (UStVA) with ELSTER XML export, cash-basis P&amp;L, bank reconciliation, and a read-only AI assistant. From concept to an operable prototype in days, not months.",
 
-                blog_title: "04. Insights",
+                tools_title: "04. Tools",
+                tools_intro: "Tools we built for our own needs. Both are open source and run either self-hosted or entirely locally in the browser — they handle data that should not leave your own machine.",
+                tool_redline_title: "redline — Document Comparison in the Browser",
+                tool_redline_desc: "Compares two versions of a document word by word — PDF, Word (.docx), OpenDocument (.odt), plain text and Markdown, in any combination. The comparison runs entirely inside the browser tab: no upload, no server, no network request. Built for the contracts you are not allowed to send anywhere.",
+                tool_ac_title: "AccountingCockpit — Bookkeeping for German Sole Proprietors",
+                tool_ac_desc: "Bookkeeping for German sole proprietors on cash accounting: e-invoicing (Factur-X/ZUGFeRD), OCR receipt capture, VAT return (UStVA) with ELSTER XML export, cash-basis P&amp;L, bank reconciliation, and a read-only AI assistant. Built for my own use, used daily, now open source and self-hosted.",
+                tag_nonetwork: "No upload, no server",
+                tag_worddiff: "Word-level diff",
 
-                publications_title: "05. Research & Patents",
+                blog_title: "05. Insights",
+
+                publications_title: "06. Research & Patents",
                 research_intro: "Hegemann Technologies' AI advisory is grounded in years of peer-reviewed research and granted patents in quantum computing and quantum communication. We bring this long-horizon technical perspective to every engagement — so today's AI build doesn't become tomorrow's legacy.",
                 papers_subtitle: "// Publications (Selected)",
                 patents_subtitle: "// Patents (Pending/Granted)",
 
-                references_title: "06. References",
+                references_title: "07. References",
                 references_intro: "Selected testimonial from the quantum advisory work that established Hegemann Technologies' technical credibility:",
 
-                contact_title: "07. Contact",
+                contact_title: "08. Contact",
                 availability: "Hegemann Technologies is currently accepting new engagements starting <strong>May 2026</strong>."
             }
         };
