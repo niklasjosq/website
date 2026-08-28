@@ -1,28 +1,21 @@
-# robots.txt for https://niklasjosq.github.io/website/
+# robots.txt for https://hegemann.tech/
 #
-# HEADS-UP: robots.txt is resolved per ORIGIN, not per path. Standards-compliant
-# crawlers only ever read https://niklasjosq.github.io/robots.txt — which belongs
-# to the separate niklasjosq.github.io user-pages repository and is not published
-# today (it returns 404, which crawlers read as "no restrictions").
-#
-# This file is therefore advisory: it states intent, and some simpler agents do
-# fetch a path-relative robots.txt. The directives that actually bind crawlers on
-# this site are the per-page <meta name="robots"> tags.
-#
-# To make these rules authoritative, publish a niklasjosq.github.io repo with a
-# robots.txt at its root. Note that such a file governs every project page on the
-# origin, not just this one.
+# This file is authoritative. robots.txt is resolved per ORIGIN, and since the
+# site moved from the GitHub Pages project path (niklasjosq.github.io/website/)
+# to its own apex domain, this file now sits at the origin root — the exact URL
+# standards-compliant crawlers fetch. The per-page <meta name="robots"> tags are
+# still in place and remain the finer-grained control.
 
 User-agent: *
 Allow: /
 
-# The interactive prototype at /website/demos/invoicer/ is deliberately NOT
-# disallowed here. It already carries <meta name="robots" content="noindex, follow">,
-# and a crawler must be able to fetch the page to see that directive. Disallowing it
+# The interactive prototype at /demos/invoicer/ is deliberately NOT disallowed
+# here. It already carries <meta name="robots" content="noindex, follow">, and a
+# crawler must be able to fetch the page to see that directive. Disallowing it
 # would hide the noindex and could still leave a URL-only entry in search results.
-# Prefer /website/invoicer.html, which is the page written for human readers.
+# Prefer /invoicer.html, which is the page written for human readers.
 
 # Machine-readable site overview for AI agents:
-# https://niklasjosq.github.io/website/llms.txt
+# https://hegemann.tech/llms.txt
 
-Sitemap: https://niklasjosq.github.io/website/sitemap.xml
+Sitemap: https://hegemann.tech/sitemap.xml

@@ -2,7 +2,7 @@
 
 Personal portfolio website for Niklas Hegemann, showcasing services and projects in Quantum Computing, Artificial Intelligence, and Financial Tech.
 
-**Live Website:** [https://niklasjosq.github.io/website](https://niklasjosq.github.io/website)
+**Live Website:** [https://hegemann.tech](https://hegemann.tech)
 
 ## 🚀 Services
 
@@ -46,9 +46,11 @@ This is a static website built with pure HTML, CSS, and JavaScript.
 *   `.nojekyll`: Disables GitHub Pages' Jekyll processing (the site uses none of it). Not strictly required today — no file has YAML front matter,
     so Jekyll would copy everything verbatim — but it guards the 377 `{{ ... }}` template
     expressions inside the generated prototype against ever being parsed as Liquid.
-*   `robots.txt`: Advisory only. robots.txt is resolved per origin, so crawlers read
-    `niklasjosq.github.io/robots.txt` (a different, unpublished repo) and never this file.
-    Binding crawl directives live in per-page `<meta name="robots">` tags.
+*   `robots.txt`: Authoritative. robots.txt is resolved per origin, and the site is published
+    on its own apex domain, so crawlers read this file at `hegemann.tech/robots.txt`.
+    Per-page `<meta name="robots">` tags remain the finer-grained control.
+*   `CNAME`: The custom domain (`hegemann.tech`) that GitHub Pages serves this repo on.
+    Deleting it reverts the site to `niklasjosq.github.io/website/`.
 *   `sitemap.xml`: Lists the four indexable pages. Excludes the noindex prototype.
 *   `llms.txt`: Machine-readable site overview for AI agents (llmstxt.org convention),
     including an explicit statement that all data in the prototype is fictional.

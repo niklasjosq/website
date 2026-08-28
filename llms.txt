@@ -11,17 +11,17 @@ English text is a translation held in an in-page dictionary, switched client-sid
 
 ## Pages
 
-- [Homepage](https://niklasjosq.github.io/website/): Capabilities, services (for businesses and
+- [Homepage](https://hegemann.tech/): Capabilities, services (for businesses and
   for investors), selected work, tools, insights, research and patents, references, contact.
-- [AccountingCockpit](https://niklasjosq.github.io/website/invoicer.html): Open-source bookkeeping
+- [AccountingCockpit](https://hegemann.tech/invoicer.html): Open-source bookkeeping
   software for German sole proprietors, built by the site owner for his own use. Explains why it
   exists, what it does, how to run it, and links to a clickable preview of the interface. The
   source repository is deliberately not linked from the site; it is shared on request. The
   `invoicer.html` filename predates the rename from "Invoicer" and is kept so the published URL
   keeps working; the product name is AccountingCockpit.
-- [Impressum](https://niklasjosq.github.io/website/impressum.html): Legal notice per § 5 TMG
+- [Impressum](https://hegemann.tech/impressum.html): Legal notice per § 5 TMG
   (German law). Contact address and responsible party.
-- [Datenschutzerklärung](https://niklasjosq.github.io/website/datenschutz.html): Privacy policy.
+- [Datenschutzerklärung](https://hegemann.tech/datenschutz.html): Privacy policy.
   Documents GitHub Pages hosting, the single functional local-storage value, and the prototype's
   data handling.
 
@@ -49,7 +49,7 @@ Niklas Hegemann built it for his own bookkeeping and uses it daily. It is being 
 open source, self-hosted — there is deliberately no hosted version, because it handles tax data
 that should stay on a machine the user controls.
 
-- [Interactive prototype](https://niklasjosq.github.io/website/demos/invoicer/): A single
+- [Interactive prototype](https://hegemann.tech/demos/invoicer/): A single
   self-contained HTML file (1.4 MB) that runs entirely in the browser. **This is a clickable
   preview of the interface, not the application** — it has no backend and stores nothing. The
   working software is the source code.
@@ -84,10 +84,11 @@ that should stay on a machine the user controls.
 
 ## Notes
 
-- Hosting: GitHub Pages, served from the `main` branch of https://github.com/niklasjosq/website.
-  This is a project page, so all URLs live under the `/website/` path prefix.
-- `robots.txt` for this origin would have to live at https://niklasjosq.github.io/robots.txt, which
-  belongs to a different repository and is currently not published. Per-page crawling directives on
-  this site are therefore expressed with `<meta name="robots">` tags instead.
+- Hosting: GitHub Pages, served from the `main` branch of https://github.com/niklasjosq/website
+  and published on the custom apex domain hegemann.tech. All URLs live at the origin root; the
+  older project-page URLs under `niklasjosq.github.io/website/` redirect here.
+- `robots.txt` is authoritative at https://hegemann.tech/robots.txt, because the site now occupies
+  its own origin root rather than a project-page path. Per-page crawling directives are also
+  expressed with `<meta name="robots">` tags.
 - Licence: the repository is MIT-licensed (see LICENSE). Site copy, the brand name "Hegemann
   Technologies", the logo and the AccountingCockpit design are not covered by that licence.
